@@ -8,7 +8,7 @@ var SpotifyWebApi = require('spotify-web-api-node');
 
 var express = require('express');
 var app = express();
-var server = app.listen(3000, () => console.log('listening at 3000'));
+var server = app.listen(process.env.PORT || 3000, () => console.log('listening at 3000'));
 
 var io = socket(server);
 io.on('connection', newConnection);
