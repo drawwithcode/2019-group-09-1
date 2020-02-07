@@ -1,3 +1,4 @@
+var socket;
 var searchResults; //variabile che memorizza i results della ricerca
 var database;
 var songINFO;
@@ -5,6 +6,7 @@ var lastKey = [];
 var moodCategory;
 
 function setup() {
+  socket = io();
   //Firebase configuration
   var firebaseConfig = {
     apiKey: "AIzaSyC0wPI6FHQp7mIKMX6METBMywGG6e9277Q",
