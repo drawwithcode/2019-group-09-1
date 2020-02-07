@@ -1,4 +1,4 @@
-var SpotifyWebApi = require('spotify-web-api-node');
+var SpotifyWebApi = require('spotify-web-api-js');
 
 var express = require('express');
 var app = express();
