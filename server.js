@@ -1,5 +1,3 @@
-console.log("THIS SERVER IS WORKING");
-
 //require dotenv in dev mode
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
@@ -30,6 +28,7 @@ var spotifyApi = new SpotifyWebApi({
 });
 
 app.post('/selection', (request, response) => {
+  console.log("THIS POST IS WORKING");
   console.log(request.body);
 
   spotifyApi.clientCredentialsGrant().then(
