@@ -3,6 +3,9 @@
   "name": "vibetuner",
   "description": "webapp for Creative Coding course",
   "version": "0.0.2",
+  "scripts": {
+    "start": "node server.js"
+  }
   "engines" : {
     "node": "12.14.1"
   },
