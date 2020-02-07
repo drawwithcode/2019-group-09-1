@@ -1,3 +1,5 @@
+console.log("THIS SERVER IS WORKING");
+
 //require dotenv in dev mode
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
