@@ -1,13 +1,14 @@
+//require dotenv in dev mode
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
+
 var socket = require('socket.io');
 var SpotifyWebApi = require('spotify-web-api-node');
 
 var express = require('express');
 var app = express();
-app.listen(3000, () => console.log('listening at 3000'));
-app.use(express.static('public'));
-app.use(express.json({
-  limit: '1mb'
-}));
+var server = app.listen(3000, () => console.log('listening at 3000'));
 
 var io = socket(server);
 io.on('connection', newConnection);
@@ -16,10 +17,10 @@ function newConnection(socket) {
   console.log("listening. . .");
 }
 
-//require dotenv in dev mode
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config();
-}
+app.use(express.static('public'));
+app.use(express.json({
+  limit: '1mb'
+}));
 
 var spotifyApi = new SpotifyWebApi({
   clientId: process.env.CLIENTID,
