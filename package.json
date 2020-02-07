@@ -1,11 +1,11 @@
 {
+  "scripts": {
+    "start": "node server.js"
+  },
   "author": "group09",
   "name": "vibetuner",
   "description": "webapp for Creative Coding course",
   "version": "0.0.2",
-  "scripts": {
-    "start": "node server.js"
-  },
   "engines": {
     "node": "12.14.1"
   },
@@ -18,5 +18,8 @@
     "request": "^2.88.0",
     "socket.io": "^2.3.0",
     "spotify-web-api-node": "^4.0.0"
+  },
+  "devDependencies": {
+  "dotenv": "^8.2.0"
   }
 }
