@@ -3,13 +3,24 @@ html, body {
   overflow-y: hidden;
 }
 
+#title {
+  text-align: center;
+  font-family: "Bazar";
+  color: #ff8871;
+  padding-top: 40vh;
+  font-size: 13vw;
+  animation-duration: 2.5s;
+  animation-timing-function: ease-in-out;
+  animation-name: easeIn;
+  text-shadow: 2px 2px 10px rgb(8, 15, 36);
+  display: block;
+}
 
 
 
 
 
-
-
+/*--------------------------------------------------------*/
 .result{
   background-color: ivory;
 }
