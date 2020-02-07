@@ -2,8 +2,15 @@ html, body {
   overflow-x: hidden;
   overflow-y: hidden;
 }
+body {
+  position: relative;
+  background-image: radial-gradient(circle, #132152, #080f24);
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
 
-#title {
+#titlePage0 {
   text-align: center;
   font-family: "Bazar";
   color: #ff8871;
@@ -16,11 +23,41 @@ html, body {
   display: block;
 }
 
+#start {
+  font-family: "HK Regular";
+  text-align: center;
+  font-size: 13px;
+  padding-top: 4%;
+  color: #ff8871;
+  animation-duration: 2.5s;
+  animation-timing-function: ease-in-out;
+  animation-name: easeIn;
+  text-shadow: 2px 2px 8px rgb(8, 15, 36);
+  cursor: default;
+  display: block;
+}
+
+/*------------------font links ---------------------------------*/
+@font-face {
+  font-family: 'Bazar';
+  src: url('assets/fonts/Bazar.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'HK Regular';
+  src: url('assets/fonts/HKGrotesk-RegularLegacy.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
 
 
 
 
-/*--------------------------------------------------------*/
+
+/*------------------Code 07/2 ---------------------------------*/
+
+
 .result{
   background-color: ivory;
 }
@@ -48,4 +85,12 @@ html, body {
 
 .buttonDown{
   background-color: grey;
+}
+
+
+/*---------------------temporary-----------------------------*/
+
+button{
+  width: 200px;
+  height: 100px;
 }
