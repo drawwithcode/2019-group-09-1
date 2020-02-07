@@ -1,0 +1,28 @@
+.result{
+  background-color: ivory;
+}
+
+.result:hover{
+  background-color: antiquewhite;
+}
+
+#resultsContainer{
+    cursor: pointer;
+}
+
+.hidden{
+  display: none;
+}
+
+.inactive{
+  background-color: white;
+}
+
+.inactive:hover{
+  background-color: white;
+
+}
+
+.buttonDown{
+  background-color: grey;
+}

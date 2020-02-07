@@ -1,0 +1,113 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase.js"></script>
+</head>
+
+<body>
+  <div id="page1">
+    <button id="send" onclick="changePage('1','2a')">Transmit a song</button>
+
+    <button id="receive" onclick="changePage('1','2b')">Look for a suggestion</button>
+
+  </div>
+
+  <!--********************************************************************************************************************************************
+  ***************************************************************************************************************************************************
+  *************************** SECTION A *********************************************************************************************************
+  ************************************************************************************************************************************************ -->
+
+  <!--Pagina della ricerca per inserire una canzone -->
+  <div id="page2a" class="hidden">
+    <button onclick="changePage('2a','1');cleanPage2a();">Home</button>
+
+    <input type="text" id="searchbar" onkeyup="search()" placeholder="Search a song...">
+
+    <div id="resultsContainer">
+      <div id="searchResults0" class="result" onclick="selectedResult(0)"></div>
+      <div id="searchResults1" class="result" onclick="selectedResult(1)"></div>
+      <div id="searchResults2" class="result" onclick="selectedResult(2)"></div>
+      <div id="searchResults3" class="result" onclick="selectedResult(3)"></div>
+      <div id="searchResults4" class="result" onclick="selectedResult(4)"></div>
+      <div id="searchResults5" class="result" onclick="selectedResult(5)"></div>
+    </div>
+  </div>
+
+
+  <!--Pagina di conferma per inserire la canzone -->
+  <div id="page3a" class="hidden">
+    <div id="page3a_title">Would you like to suggest this song?</div>
+
+    <!--DIV contenente le info della canzone-->
+    <div id="page3a_card">
+      <iframe id="spotifyPreviewA" src="" width="250" height="330" frameborder="0" allowtransparency="true"></iframe>
+      <div id="page3a_cover">
+        <!-- <img src="" id="cover"> -->
+      </div>
+      <div id="page3a_song">
+      </div>
+      <div id="page3a_artist">
+      </div>
+      <div id="page3a_other">
+      </div>
+    </div>
+
+    <button class="moodButton" onclick="setMoodA(0)">Mood0</button>
+    <button class="moodButton" onclick="setMoodA(1)">Mood1</button>
+    <button class="moodButton" onclick="setMoodA(2)">Mood2</button>
+    <button class="moodButton" onclick="setMoodA(3)">Mood3</button>
+    <button class="moodButton" onclick="setMoodA(4)">Mood4</button>
+
+
+    <button disabled id="sendSong" class="inactive" onclick="sendSong();changePage('3a','4a');cleanSRC('spotifyPreviewA');cleanPage2a()">YES!</button>
+
+    <button id="goBackTo2a" onclick="changePage('3a','2a');cleanSRC('spotifyPreviewA');cleanPage2a();cleanButtons(0)">No, go back</button>
+  </div>
+
+  <div id="page4a" class="hidden">
+    <div>Song transmitted successfully</div>
+    <button onclick="changePage('4a','1')">Go back to homepage</button>
+  </div>
+
+  <!--********************************************************************************************************************************************
+***************************************************************************************************************************************************
+*************************** SECTION B *********************************************************************************************************
+************************************************************************************************************************************************ -->
+
+
+  <div id="page2b" class="hidden">
+    page2b
+
+    Cerca una canzone
+
+    <button class="moodButton" onclick="setMoodB(5)">Mood0</button>
+    <button class="moodButton" onclick="setMoodB(6)">Mood1</button>
+    <button class="moodButton" onclick="setMoodB(7)">Mood2</button>
+    <button class="moodButton" onclick="setMoodB(8)">Mood3</button>
+    <button class="moodButton" onclick="setMoodB(9)">Mood4</button>
+
+
+
+    <button id="receiveSong" onclick="changePage('2b','3b');receiveSong()">Go to 3b</button>
+  </div>
+
+  <div id="page3b" class="hidden">
+    <div id="page3a_title">Someone suggested this song:</div>
+
+    <!--DIV contenente le info della canzone-->
+    <div id="page3b_card">
+      <iframe id="spotifyPreviewB" src="" width="250" height="330" frameborder="0" allowtransparency="true"></iframe>
+    </div>
+
+    <button id="fromPage3bToPage1" onclick="changePage('3b','1');cleanButtons(5);cleanSRC('spotifyPreviewB')">No, go back</button>
+  </div>
+
+
+</body>
+<script src="p5.min.js"></script>
+<script src="sketch.js"></script>
+
+</html>
