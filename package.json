@@ -1,8 +1,11 @@
 {
-  "author": "Spotify",
-  "name": "web-api-auth-examples",
-  "description": "Basic examples of the Spotify authorization flows through OAuth 2",
+  "author": "group09",
+  "name": "vibetuner",
+  "description": "webapp for Creative Coding course",
   "version": "0.0.2",
+  "engines" : {
+    "node": "12.14.1"
+  }
   "dependencies": {
     "cookie-parser": "^1.4.4",
     "cors": "^2.8.4",
@@ -10,7 +13,6 @@
     "express": "^4.17.1",
     "querystring": "~0.2.0",
     "request": "^2.88.0",
-    "socket.io": "^2.3.0",
     "spotify-web-api-node": "^4.0.0"
   }
 }
