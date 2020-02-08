@@ -3,11 +3,132 @@ var searchResults; //variabile che memorizza i results della ricerca
 var database;
 var songINFO;
 var lastKey = [];
-var moodCategory;
+var moodCategory = 4;
 var foundSongs = [];
+var canvas2bSlider;
+var canvas2bKnob;
+var bar;
 
+var dragging = false; // Is the slider being dragged?
+var rollover = false; // Is the mouse over the slider?
+var x = 200;
+var y = 150;
+var r = 40;
+// Knob angle
+var angle = 0;
+var count = 0;
+// Offset angle for turning knob
+var offsetAngle = 0;
+
+function preload() {
+  bar = loadImage('assets/images/bar.png');
+}
+
+var sketchSlider2b = function(s) {
+
+  s.setup = function() {
+    canvas2bSlider = s.createCanvas(400, 300);
+    canvas2bSlider.parent('sketch2bSlider');
+  };
+
+  s.draw = function() {
+      s.imageMode(CENTER);
+      // rectMode(CENTER);
+      s.background("red");
+
+      //create selector display
+      for (var i = 0; i < 5; i++) {
+        s.image(bar, s.width / 2, s.height / 16 * (2 + (i * 3)), s.height * 6, s.height / 8);
+      }
+      var hardStop = s.height / 16 * (2 + (moodCategory * 3));
+
+      //horizontal line
+      s.line(0, hardStop, s.width, hardStop);
+      //vertical line
+      s.line(s.width / 2, 0, s.width / 2, s.height);
+      //circle
+      s.ellipse(s.width / 2, hardStop, s.height / 16);
+  };
+
+};
+
+var sketchKnob2b = function(k) {
+  k.setup = function() {
+    canvas2bKnob = k.createCanvas(400, 300);
+    canvas2bKnob.parent('sketch2bKnob');
+  };
+
+  k.draw = function() {
+      k.background(100);
+      //create Knob
+      if (count === 0) {
+        // Is it being dragged?
+        if (dragging) {
+          var dx = k.mouseX - x;
+          var dy = k.mouseY - y;
+          var mouseAngle = atan2(dy, dx);
+          angle = mouseAngle - offsetAngle;
+        }
+        // Fill according to state
+        if (dragging) {
+          k.fill(175);
+        } else {
+          k.fill(255);
+        }
+        // Draw ellipse for knob
+        k.push();
+        k.translate(x, y);
+        k.rotate(angle);
+        k.ellipse(0, 0, r * 2, r * 2);
+        k.line(0, 0, r, 0);
+        k.pop();
+        k.fill(0);
+        var calcAngle = 0;
+        if (angle < 0) {
+          calcAngle = k.map(angle, -PI, 0, PI, 0);
+        } else if (angle > 0) {
+          calcAngle = k.map(angle, 0, PI, TWO_PI, PI);
+        }
+
+        k.textAlign(CENTER);
+        k.text(int(degrees(calcAngle)), x, y + r + 20);
+
+        var degree = k.int(degrees(calcAngle));
+
+        if (dragging && degree < 10) {
+          count == 2;
+        }
+      }
+      if (count === 2) {
+        var b = k.map(calcAngle, 0, TWO_PI, 0, 255);
+        k.fill(b);
+        k.rect(320, 90, 160, 180);
+      }
+  };
+  mousePressed = function() {
+    // Did I click on slider?
+    if (k.dist(k.mouseX, k.mouseY, x, y) < r) {
+      dragging = true;
+      // If so, keep track of relative location of click to corner of rectangle
+      var dx = k.mouseX - x;
+      var dy = k.mouseY - y;
+      offsetAngle = atan2(dy, dx) - angle;
+    }
+  }
+
+  mouseReleased = function() {
+    // Stop dragging
+    dragging = false;
+  }
+};
 
 function setup() {
+  // //Canvas that contain slider
+  // canvas2bSlider = createCanvas(400, 300);
+  // canvas2bSlider.parent('sketch2bSlider');
+  // //Canvas that contain knob
+  // canvas2bKnob = createCanvas(400, 300);
+  // canvas2bKnob.parent('sketch2bKnob');
   socket = io();
   //Firebase configuration
   var firebaseConfig = {
@@ -26,12 +147,77 @@ function setup() {
   }
   database = firebase.database();
   // firebase.analytics();
-
   for (var i = 0; i < 5; i++) {
     keyCheck(i);
   }
 
 }
+//
+// function draw() {
+//   imageMode(CENTER);
+//   rectMode(CENTER);
+//   canvas2bSlider.background("red");
+//
+//   //create selector display
+//   for (var i = 0; i < 5; i++) {
+//     canvas2bSlider.image(bar, width / 2, height / 16 * (2 + (i * 3)), height * 6, height / 8);
+//   }
+//   var hardStop = height / 16 * (2 + (moodCategory * 3));
+//
+//   //horizontal line
+//   canvas2bSlider.line(0, hardStop, width, hardStop);
+//   //vertical line
+//   canvas2bSlider.line(width / 2, 0, width / 2, height);
+//   //circle
+//   canvas2bSlider.ellipse(width / 2, hardStop, height / 16);
+//
+//   //create Knob
+//   if (count === 0) {
+//
+//     // Is it being dragged?
+//     if (dragging) {
+//       var dx = mouseX - x;
+//       var dy = mouseY - y;
+//       var mouseAngle = atan2(dy, dx);
+//       angle = mouseAngle - offsetAngle;
+//     }
+//     // Fill according to state
+//     if (dragging) {
+//       fill(175);
+//     } else {
+//       fill(255);
+//     }
+//     // Draw ellipse for knob
+//     push();
+//     translate(x, y);
+//     rotate(angle);
+//     ellipse(0, 0, r * 2, r * 2);
+//     line(0, 0, r, 0);
+//     pop();
+//     fill(0);
+//     var calcAngle = 0;
+//     if (angle < 0) {
+//       calcAngle = map(angle, -PI, 0, PI, 0);
+//     } else if (angle > 0) {
+//       calcAngle = map(angle, 0, PI, TWO_PI, PI);
+//     }
+//
+//     textAlign(CENTER);
+//     text(int(degrees(calcAngle)), x, y + r + 20);
+//
+//     var degree = int(degrees(calcAngle));
+//
+//     if (dragging && degree < 10) {
+//       count == 2;
+//     }
+//   }
+//   if (count === 2) {
+//     var b = map(calcAngle, 0, TWO_PI, 0, 255);
+//     fill(b);
+//     rect(320, 90, 160, 180);
+//   }
+//
+// }
 
 function keyCheck(index) {
   var ref = database.ref(index);
@@ -40,9 +226,7 @@ function keyCheck(index) {
   //retrieve last key to increase database
   function gotMood(data) {
     if (lastKey[index] == null) {
-      console.log(index);
       lastKey[index] = 0;
-      console.log(lastKey);
     } else {
       lastKey[index] = Object.keys(data.val()).length;
     }
@@ -56,7 +240,6 @@ function keyCheck(index) {
 
 
 function changePage(from, to) {
-  console.log(lastKey);
   document.getElementById("page" + from).classList.add("hidden");
   document.getElementById("page" + to).classList.remove("hidden");
 
@@ -107,7 +290,6 @@ async function search() {
     };
     var response = await fetch('/selection', options);
     searchResults = await response.json();
-    console.log(Object.keys(searchResults.results).length);
 
     for (var i = 0; i < 6; i++) {
       document.getElementsByClassName("result")[i].innerHTML = "";
@@ -160,8 +342,6 @@ function sendSong() {
   var ref = database.ref(moodCategory);
   ref.on('value', gotKey, errKey);
   var keyString = lastKey[moodCategory];
-  console.log(lastKey);
-  console.log(moodCategory);
   var insertSong = ref.child(keyString.toString()).set(songArray);
   //reset button classes when song is sent
   cleanButtons(0);
@@ -201,29 +381,21 @@ function gotData(data) {
       tempArray.push(tempArray2);
 
     }
-   foundSongs.push(tempArray);
-
+    foundSongs.push(tempArray);
   }
-
-console.log(foundSongs);
-
-  // resultUri = spotify URI of random found song
-
-  document.getElementById("spotifyPreviewB").src = 'https://open.spotify.com/embed?uri=' + resultURI;
+  // document.getElementById("spotifyPreviewB").src = 'https://open.spotify.com/embed?uri=' + resultURI;
 }
 
 function errData(err) {
   console.log('Error: ' + err);
 }
 
-
-
 //set mood in section B
 
 function setMoodB(mood) {
   //moodCategory button defined from 5 to 9, moods from 0 to 4; This is the reason why we subtract 5 to moodCategory
-  moodCategory = mood -5;
-  
+  moodCategory = mood - 5;
+
   cleanButtons(5);
   document.getElementsByClassName("moodButton")[mood].classList.add("buttonDown");
   document.getElementById('receiveSong').disabled = false;
@@ -235,6 +407,7 @@ function setMoodB(mood) {
 function receiveSong() {
 
 
-
-
 }
+
+var p5Slider2b = new p5(sketchSlider2b);
+var p5Knob2b = new p5(sketchKnob2b);

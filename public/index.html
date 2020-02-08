@@ -4,6 +4,7 @@
   <!-- <link rel="shortcut icon" href="/assets/placeholder.png"> -->
   <script src="/socket.io/socket.io.js"></script>
   <link rel="stylesheet" href="style.css">
+  <!-- firebase libraries -->
   <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-analytics.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase.js"></script>
@@ -13,7 +14,7 @@
 
   <div id="page0">
      <h1 id="titlePage0">VIBE.TUNER</h1>
-     <div id="start" onclick="changePage('0','1')"  >tap to go on</div>
+     <div id="start" onclick="changePage('0','1')">tap to go on</div>
 
   </div>
 
@@ -89,6 +90,8 @@
 
   <div id="page2b" class="hidden">
     page2b
+    <div id="sketch2bSlider">
+    </div>
 
     Cerca una canzone
    <div id="containerButtonsB">
@@ -97,7 +100,10 @@
     <button class="moodButton" onclick="setMoodB(7)">RELAXED</button>
     <button class="moodButton" onclick="setMoodB(8)">INSPIRED</button>
     <button class="moodButton" onclick="setMoodB(9)">ANGRY</button>
-</div>
+    </div>
+    
+    <div id="sketch2bKnob">
+    </div>
 
 
     <button id="receiveSong" onclick="changePage('2b','3b');receiveSong()">Go to 3b</button>
