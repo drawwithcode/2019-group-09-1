@@ -20,7 +20,7 @@
   <div id="page1" class="hidden">
     <button id="send" onclick="changePage('1','2a')">Transmit a song</button>
 
-    <button id="receive" onclick="changePage('1','2b')">Look for a suggestion</button>
+    <button id="receive" onclick="changePage('1','2b') ; retrieveSongs()">Look for a suggestion</button>
 
   </div>
 
@@ -91,13 +91,13 @@
     page2b
 
     Cerca una canzone
-
+   <div id="containerButtonsB">
     <button class="moodButton" onclick="setMoodB(5)">HAPPY</button>
     <button class="moodButton" onclick="setMoodB(6)">SAD</button>
     <button class="moodButton" onclick="setMoodB(7)">RELAXED</button>
     <button class="moodButton" onclick="setMoodB(8)">INSPIRED</button>
     <button class="moodButton" onclick="setMoodB(9)">ANGRY</button>
-
+</div>
 
 
     <button id="receiveSong" onclick="changePage('2b','3b');receiveSong()">Go to 3b</button>

@@ -4,6 +4,8 @@ var database;
 var songINFO;
 var lastKey = [];
 var moodCategory;
+var foundSongs = [];
+
 
 function setup() {
   socket = io();
@@ -173,30 +175,66 @@ function errKey(err) {
   console.log('Error: ' + err);
 }
 
-//set mood in section B
-function setMoodB(mood) {
-  moodCategory = mood;
-  cleanButtons(5);
-  document.getElementsByClassName("moodButton")[mood].classList.add("buttonDown");
-  document.getElementById('receiveSong').disabled = false;
-}
 
-//receive Song
-function receiveSong() {
-  //moodCategory button defined from 5 to 9, moods from 0 to 4; This is the reason why we subtract 5 to moodCategory
-  moodCategory -= 5;
-  var ref = database.ref(moodCategory);
+function retrieveSongs() {
+  var ref = database.ref();
   ref.on('value', gotData, errData);
+
 }
 
+//function that retrieves 15 random songs (three for each mood) and associates to every song a random value
+//that will be used for displaying.
 function gotData(data) {
-  lastKey[moodCategory] = Object.keys(data.val()).length;
-  var randID = Math.floor(random(lastKey[moodCategory]));
-  //spotify URI of random found song
-  var resultURI = data.val()[randID][0];
+
+  for (var i = 0; i < 5; i++) {
+    var tempArray = [];
+
+    lastKey[i] = Object.keys(data.val()[i]).length;
+
+    for (var j = 0; j < 3; j++) {
+
+      var randID = Math.floor(random(lastKey[i]));
+      var resultURI = data.val()[i][randID][0];
+      var randomFreq = Math.floor(random(100));
+      var tempArray2 = [];
+      tempArray2.push(resultURI, randomFreq);
+      tempArray.push(tempArray2);
+
+    }
+   foundSongs.push(tempArray);
+
+  }
+
+console.log(foundSongs);
+
+  // resultUri = spotify URI of random found song
+
   document.getElementById("spotifyPreviewB").src = 'https://open.spotify.com/embed?uri=' + resultURI;
 }
 
 function errData(err) {
   console.log('Error: ' + err);
+}
+
+
+
+//set mood in section B
+
+function setMoodB(mood) {
+  //moodCategory button defined from 5 to 9, moods from 0 to 4; This is the reason why we subtract 5 to moodCategory
+  moodCategory = mood -5;
+  
+  cleanButtons(5);
+  document.getElementsByClassName("moodButton")[mood].classList.add("buttonDown");
+  document.getElementById('receiveSong').disabled = false;
+
+
+}
+
+//receive Song
+function receiveSong() {
+
+
+
+
 }
