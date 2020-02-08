@@ -9,6 +9,10 @@ var canvas2bSlider;
 var canvas2bKnob;
 var bar;
 
+var isButtonChooseSongAbled;
+var choosenSongUri;
+var transmissionDegrees;
+
 var dragging = false; // Is the slider being dragged?
 var rollover = false; // Is the mouse over the slider?
 var x = 200;
@@ -32,22 +36,60 @@ var sketchSlider2b = function(s) {
   };
 
   s.draw = function() {
-      s.imageMode(CENTER);
-      // rectMode(CENTER);
-      s.background("red");
+    s.imageMode(CENTER);
+    // rectMode(CENTER);
+    s.background("red");
 
-      //create selector display
-      for (var i = 0; i < 5; i++) {
-        s.image(bar, s.width / 2, s.height / 16 * (2 + (i * 3)), s.height * 6, s.height / 8);
+    //create selector display
+    for (var i = 0; i < 5; i++) {
+      var barLenght = s.height * 6;
+
+
+
+      if (moodCategory == i) {
+        barX = s.map(transmissionDegrees, 0, 360, barLenght / 2 - s.width, -barLenght / 2 + s.width);
+        s.fill("green");
+
+        for (j = 0; j < 3; j++) {
+
+          //this if is needed to wait the foundSongs array to be full
+          if (!(foundSongs.length == 0)) {
+
+            var unMappedCasualx = foundSongs[i][j][1];
+            var ellXPos = casualX + barX;
+
+            var casualX = s.map(unMappedCasualx, 0, 100, -barLenght / 2 + s.width, barLenght / 2 - s.width);
+
+            //when the slider is on a ellipse song
+            if ((s.width / 2 - 20) < ellXPos && ellXPos < (s.width / 2 + 20)) {
+              ellXPos = 200;
+
+              choosenSongUri = foundSongs[i][j][0];
+
+
+            }
+
+            // s.text((Math.floor(casualX + barX) / 10), 100 * j, 200);
+
+            s.ellipse(ellXPos, s.height / 16 * (2 + (i * 3)), s.height / 8, s.height / 8)
+          }
+        }
+
+
+      } else {
+        barX = 0
       }
-      var hardStop = s.height / 16 * (2 + (moodCategory * 3));
+      s.image(bar, barX, s.height / 16 * (2 + (i * 3)), s.height * 6, s.height / 8);
+    }
+    var hardStop = s.height / 16 * (2 + (moodCategory * 3));
 
-      //horizontal line
-      s.line(0, hardStop, s.width, hardStop);
-      //vertical line
-      s.line(s.width / 2, 0, s.width / 2, s.height);
-      //circle
-      s.ellipse(s.width / 2, hardStop, s.height / 16);
+    //horizontal line
+    s.line(0, hardStop, s.width, hardStop);
+    //vertical line
+    s.line(s.width / 2, 0, s.width / 2, s.height);
+    //circle
+    s.noFill();
+    s.ellipse(s.width / 2, hardStop, s.height / 16);
   };
 
 };
@@ -59,51 +101,52 @@ var sketchKnob2b = function(k) {
   };
 
   k.draw = function() {
-      k.background(100);
-      //create Knob
-      if (count === 0) {
-        // Is it being dragged?
-        if (dragging) {
-          var dx = k.mouseX - x;
-          var dy = k.mouseY - y;
-          var mouseAngle = atan2(dy, dx);
-          angle = mouseAngle - offsetAngle;
-        }
-        // Fill according to state
-        if (dragging) {
-          k.fill(175);
-        } else {
-          k.fill(255);
-        }
-        // Draw ellipse for knob
-        k.push();
-        k.translate(x, y);
-        k.rotate(angle);
-        k.ellipse(0, 0, r * 2, r * 2);
-        k.line(0, 0, r, 0);
-        k.pop();
-        k.fill(0);
-        var calcAngle = 0;
-        if (angle < 0) {
-          calcAngle = k.map(angle, -PI, 0, PI, 0);
-        } else if (angle > 0) {
-          calcAngle = k.map(angle, 0, PI, TWO_PI, PI);
-        }
-
-        k.textAlign(CENTER);
-        k.text(int(degrees(calcAngle)), x, y + r + 20);
-
-        var degree = k.int(degrees(calcAngle));
-
-        if (dragging && degree < 10) {
-          count == 2;
-        }
+    k.background(100);
+    //create Knob
+    if (count === 0) {
+      // Is it being dragged?
+      if (dragging) {
+        var dx = k.mouseX - x;
+        var dy = k.mouseY - y;
+        var mouseAngle = atan2(dy, dx);
+        angle = mouseAngle - offsetAngle;
       }
-      if (count === 2) {
-        var b = k.map(calcAngle, 0, TWO_PI, 0, 255);
-        k.fill(b);
-        k.rect(320, 90, 160, 180);
+      // Fill according to state
+      if (dragging) {
+        k.fill(175);
+      } else {
+        k.fill(255);
       }
+      // Draw ellipse for knob
+      k.push();
+      k.translate(x, y);
+      k.rotate(angle);
+      k.ellipse(0, 0, r * 2, r * 2);
+      k.line(0, 0, r, 0);
+      k.pop();
+      k.fill(0);
+      var calcAngle = 0;
+      if (angle < 0) {
+        calcAngle = k.map(angle, -PI, 0, PI, 0);
+      } else if (angle > 0) {
+        calcAngle = k.map(angle, 0, PI, TWO_PI, PI);
+      }
+
+      k.textAlign(CENTER);
+      k.text();
+      transmissionDegrees = k.int(degrees(calcAngle)), x, y + r + 20;
+
+      var degree = k.int(degrees(calcAngle));
+
+      if (dragging && degree < 10) {
+        count == 2;
+      }
+    }
+    if (count === 2) {
+      var b = k.map(calcAngle, 0, TWO_PI, 0, 255);
+      k.fill(b);
+      k.rect(320, 90, 160, 180);
+    }
   };
   mousePressed = function() {
     // Did I click on slider?
@@ -405,6 +448,11 @@ function setMoodB(mood) {
 
 //receive Song
 function receiveSong() {
+
+    console.log(choosenSongUri);
+    document.getElementById("spotifyPreviewB").src = 'https://open.spotify.com/embed?uri=' + choosenSongUri;
+
+
 
 
 }
