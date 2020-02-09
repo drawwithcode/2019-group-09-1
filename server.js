@@ -82,7 +82,6 @@ app.post('/selection', (request, response) => {
 
 app.post('/selectedSong', (request, response) => {
   console.log("'" + request.body.songID + "'");
-
   var songID_string = request.body.songID.toString();
 
   return spotifyApi.getTrack(songID_string).then(function(data) {
@@ -96,19 +95,11 @@ app.post('/selectedSong', (request, response) => {
     track = data.body;
 
     var songINFO = {
-      song: track.name,
-      artist: track.artists[0].name,
-      album: track.album.name,
-      cover: track.album.images[0].url,
       uri: track.uri,
-      id: track.id,
-      preview: track.preview_url
+      id: track.id
     };
 
     response.json(songINFO);
-
-
-
 
   }).catch(function(err) {
     console.log('Something went wrong:', err.message);
