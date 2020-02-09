@@ -269,6 +269,8 @@ function mouseDragged(){
   transmissionDegrees = dial.value;
   console.log(dial.value);
 }
+
+function mouseWheel() {transmissionDegrees = dial.value;}
 //
 // function draw() {
 //   imageMode(CENTER);
