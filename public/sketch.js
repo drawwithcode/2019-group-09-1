@@ -11,6 +11,7 @@ var bar;
 
 
 
+
 var isButtonChooseSongAbled;
 var choosenSongUri;
 var transmissionDegrees;
@@ -45,65 +46,79 @@ var sketchSlider2b = function(s) {
     //reset the selectorStatus, 0 = no song selected
     var selectorStatus = 0;
 
+      cursorX = s.map(transmissionDegrees, 0,359,0,s.width);
+
     //create selector display with the five radio bars
     for (var i = 0; i < 5; i++) {
 
       //the length of the bar is related to the height of the canvas,
       var barLenght = s.height * 6;
 
+
+
       //if we are in the selected mood
       if (moodCategory == i) {
-        barX = s.map(transmissionDegrees, 0, 359, barLenght / 2 + s.width / 2, -barLenght / 2 + s.width / 2);
-        s.fill("green");
+
+
 
         //for cycle to go trough the three songs of the selected mood
         for (j = 0; j < 3; j++) {
 
+
           //this if is needed to wait the foundSongs array to be full
           if (!(foundSongs.length == 0)) {
+
+
 
             //take casual value that was assigned to the song and stored in the found song Array
             var unMappedCasualx = foundSongs[i][j][1];
 
             //take casualx and convert it to be placed on the bar
-            var casualX = s.map(unMappedCasualx, 0, 100, -barLenght / 2, barLenght / 2);
-            var ellXPos = casualX + barX;
+            var casualX = s.map(unMappedCasualx, 0, 100, 10, s.width - 10);
+
+            var transp = 255 - Math.abs(casualX - cursorX);
+            s.fill(0,255,0,transp);
+
 
             //when the slider is on an ellipse song (song is selected)
-            if ((s.width / 2 - 20) < ellXPos && ellXPos < (s.width / 2 + 20)) {
-              ellXPos = 200;
-
+            if (casualX-10  < cursorX && cursorX < casualX+10) {
+             cursorX =  casualX;
               selectorStatus = 1;
-
-              //assign to a globar variable the corresponding SPOTIFY URI
+              //assign to a global variable the corresponding SPOTIFY URI
               choosenSongUri = foundSongs[i][j][0];
-
-
             }
-            //drawing the ellipse song
-            s.ellipse(ellXPos, s.height / 16 * (2 + (i * 3)), s.height / 8, s.height / 8)
+
+            //drawing the ellipses representing the songs
+            s.noStroke();
+            s.ellipse(casualX, s.height / 16 * (2 + (i * 3)), s.height / 20);
+
+
           }
         }
 
 
       } else {
-        barX = 0;
+
       }
 
       //drawing the five radio bar
-      s.image(bar, barX, s.height / 16 * (2 + (i * 3)), barLenght, s.height / 8);
+      s.image(bar,s.width/2, s.height / 16 * (2 + (i * 3)), s.width, s.height / 8);
     }
 
     //setting the vertical positions hard stop of the selector
     var hardStop = s.height / 16 * (2 + (moodCategory * 3));
+     s.strokeWeight(2);
+     s.stroke(255, 204, 0);
 
     //horizontal line
     s.line(0, hardStop, s.width, hardStop);
+
+
     //vertical line
-    s.line(s.width / 2, 0, s.width / 2, s.height);
+    s.line(cursorX, 0, cursorX, s.height);
     //circle
     s.noFill();
-    s.ellipse(s.width / 2, hardStop, s.height / 16);
+    s.ellipse(cursorX, hardStop, s.height / 12);
 
 
     //transmitt the result of the draw cycle to the global var isButtonChooseSongAbled
