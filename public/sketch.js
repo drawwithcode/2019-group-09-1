@@ -1,31 +1,17 @@
 var socket;
-var searchResults; //variabile che memorizza i results della ricerca
+var searchResults; //stores search results
 var database;
 var songINFO;
 var lastKey = [];
-var moodCategory = 4;
+var moodCategory = 4; //mood category chosen by user. Its initial value is 4 by default
 var foundSongs = [];
 var canvas2bSlider;
-var canvas2bKnob;
 var bar;
 var dial;
-
-
 
 var isButtonChooseSongAbled;
 var choosenSongUri;
 var transmissionDegrees;
-
-var dragging = false; // Is the slider being dragged?
-var rollover = false; // Is the mouse over the slider?
-var x = 200;
-var y = 150;
-var r = 40;
-// Knob angle
-var angle = 0;
-var count = 0;
-// Offset angle for turning knob
-var offsetAngle = 0;
 
 function preload() {
   bar = loadImage('assets/images/bar.png');
@@ -40,45 +26,30 @@ var sketchSlider2b = function(s) {
 
   s.draw = function() {
     s.imageMode(CENTER);
-    // rectMode(CENTER);
     s.background("red");
 
     //reset the selectorStatus, 0 = no song selected
     var selectorStatus = 0;
-
     cursorX = s.map(transmissionDegrees, 0, 359, 0, s.width);
 
     //create selector display with the five radio bars
     for (var i = 0; i < 5; i++) {
-
       //the length of the bar is related to the height of the canvas,
       var barLenght = s.height * 6;
 
-
-
       //if we are in the selected mood
       if (moodCategory == i) {
-
-
-
         //for cycle to go trough the three songs of the selected mood
         for (j = 0; j < 3; j++) {
 
-
-          //this if is needed to wait the foundSongs array to be full
+          //this "if" is needed to wait the foundSongs array to be full
           if (!(foundSongs.length == 0)) {
-
-
-
             //take casual value that was assigned to the song and stored in the found song Array
             var unMappedCasualx = foundSongs[i][j][1];
-
             //take casualx and convert it to be placed on the bar
             var casualX = s.map(unMappedCasualx, 0, 100, 10, s.width - 10);
-
             var transp = 255 - Math.abs(casualX - cursorX);
             s.fill(0, 255, 0, transp);
-
 
             //when the slider is on an ellipse song (song is selected)
             if (casualX - 10 < cursorX && cursorX < casualX + 10) {
@@ -91,35 +62,25 @@ var sketchSlider2b = function(s) {
             //drawing the ellipses representing the songs
             s.noStroke();
             s.ellipse(casualX, s.height / 16 * (2 + (i * 3)), s.height / 20);
-
-
           }
         }
-
-
-      } else {
 
       }
 
       //drawing the five radio bar
       s.image(bar, s.width / 2, s.height / 16 * (2 + (i * 3)), s.width, s.height / 8);
     }
-
     //setting the vertical positions hard stop of the selector
     var hardStop = s.height / 16 * (2 + (moodCategory * 3));
     s.strokeWeight(2);
     s.stroke(255, 204, 0);
-
     //horizontal line
     s.line(0, hardStop, s.width, hardStop);
-
-
     //vertical line
     s.line(cursorX, 0, cursorX, s.height);
     //circle
     s.noFill();
     s.ellipse(cursorX, hardStop, s.height / 12);
-
 
     //transmitt the result of the draw cycle to the global var isButtonChooseSongAbled
     //and able or disable the button
@@ -135,89 +96,9 @@ var sketchSlider2b = function(s) {
 
 };
 
-// var sketchKnob2b = function(k) {
-//   k.setup = function() {
-//     canvas2bKnob = k.createCanvas(400, 300);
-//     canvas2bKnob.parent('sketch2bKnob');
-//   };
-//
-//   k.draw = function() {
-//     k.background(100);
-//     //create Knob
-//     if (count === 0) {
-//       // Is it being dragged?
-//       if (dragging) {
-//         var dx = k.mouseX - x;
-//         var dy = k.mouseY - y;
-//         var mouseAngle = atan2(dy, dx);
-//         angle = mouseAngle - offsetAngle;
-//       }
-//       // Fill according to state
-//       if (dragging) {
-//         k.fill(175);
-//       } else {
-//         k.fill(255);
-//       }
-//       // Draw ellipse for knob
-//       k.push();
-//       k.translate(x, y);
-//       k.rotate(angle);
-//       k.ellipse(0, 0, r * 2, r * 2);
-//       k.line(0, 0, r, 0);
-//       k.pop();
-//       k.fill(0);
-//       var calcAngle = 0;
-//       if (angle < 0) {
-//         calcAngle = k.map(angle, -PI, 0, PI, 0);
-//       } else if (angle > 0) {
-//         calcAngle = k.map(angle, 0, PI, TWO_PI, PI);
-//       }
-//
-//       k.textAlign(CENTER);
-//       k.text();
-//       transmissionDegrees = k.int(degrees(calcAngle)), x, y + r + 20;
-//
-//       var degree = k.int(degrees(calcAngle));
-//
-//       if (dragging && degree < 10) {
-//         count == 2;
-//       }
-//     }
-//     if (count === 2) {
-//       var b = k.map(calcAngle, 0, TWO_PI, 0, 255);
-//       k.fill(b);
-//       k.rect(320, 90, 160, 180);
-//     }
-//   };
-//   mousePressed = function() {
-//     // Did I click on slider?
-//     if (k.dist(k.mouseX, k.mouseY, x, y) < r) {
-//       dragging = true;
-//       // If so, keep track of relative location of click to corner of rectangle
-//       var dx = k.mouseX - x;
-//       var dy = k.mouseY - y;
-//       offsetAngle = atan2(dy, dx) - angle;
-//     }
-//   }
-//
-//   mouseReleased = function() {
-//     // Stop dragging
-//     dragging = false;
-//   }
-// };
-
 function setup() {
-  // //Canvas that contain slider
-  // canvas2bSlider = createCanvas(400, 300);
-  // canvas2bSlider.parent('sketch2bSlider');
-  // //Canvas that contain knob
-  // canvas2bKnob = createCanvas(400, 300);
-  // canvas2bKnob.parent('sketch2bKnob');
-
   Ui.P1 = function() {};
-
   Ui.P1.prototype = Object.create(Ui.prototype);
-
   Ui.P1.prototype.createElement = function() {
     "use strict";
     Ui.prototype.createElement.apply(this, arguments);
@@ -241,7 +122,9 @@ function setup() {
 
   dial = new Knob(document.getElementById('test'), new Ui.P1());
 
+  //connection client-side to server
   socket = io();
+
   //Firebase configuration
   var firebaseConfig = {
     apiKey: "AIzaSyC0wPI6FHQp7mIKMX6METBMywGG6e9277Q",
@@ -253,86 +136,23 @@ function setup() {
     appId: "1:998667217119:web:28b0fb55aa76850db7e16a",
     measurementId: "G-5TJ938D4SR"
   };
+
   //Initialize Firebase if does not exist
   if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
   }
   database = firebase.database();
-  // firebase.analytics();
+  firebase.analytics();
   for (var i = 0; i < 5; i++) {
     keyCheck(i);
   }
 
 }
 
-function draw() {transmissionDegrees = dial.value;}
+function draw() {
+  transmissionDegrees = dial.value;
+}
 
-//
-// function draw() {
-//   imageMode(CENTER);
-//   rectMode(CENTER);
-//   canvas2bSlider.background("red");
-//
-//   //create selector display
-//   for (var i = 0; i < 5; i++) {
-//     canvas2bSlider.image(bar, width / 2, height / 16 * (2 + (i * 3)), height * 6, height / 8);
-//   }
-//   var hardStop = height / 16 * (2 + (moodCategory * 3));
-//
-//   //horizontal line
-//   canvas2bSlider.line(0, hardStop, width, hardStop);
-//   //vertical line
-//   canvas2bSlider.line(width / 2, 0, width / 2, height);
-//   //circle
-//   canvas2bSlider.ellipse(width / 2, hardStop, height / 16);
-//
-//   //create Knob
-//   if (count === 0) {
-//
-//     // Is it being dragged?
-//     if (dragging) {
-//       var dx = mouseX - x;
-//       var dy = mouseY - y;
-//       var mouseAngle = atan2(dy, dx);
-//       angle = mouseAngle - offsetAngle;
-//     }
-//     // Fill according to state
-//     if (dragging) {
-//       fill(175);
-//     } else {
-//       fill(255);
-//     }
-//     // Draw ellipse for knob
-//     push();
-//     translate(x, y);
-//     rotate(angle);
-//     ellipse(0, 0, r * 2, r * 2);
-//     line(0, 0, r, 0);
-//     pop();
-//     fill(0);
-//     var calcAngle = 0;
-//     if (angle < 0) {
-//       calcAngle = map(angle, -PI, 0, PI, 0);
-//     } else if (angle > 0) {
-//       calcAngle = map(angle, 0, PI, TWO_PI, PI);
-//     }
-//
-//     textAlign(CENTER);
-//     text(int(degrees(calcAngle)), x, y + r + 20);
-//
-//     var degree = int(degrees(calcAngle));
-//
-//     if (dragging && degree < 10) {
-//       count == 2;
-//     }
-//   }
-//   if (count === 2) {
-//     var b = map(calcAngle, 0, TWO_PI, 0, 255);
-//     fill(b);
-//     rect(320, 90, 160, 180);
-//   }
-//
-// }
 
 function keyCheck(index) {
   var ref = database.ref(index);
@@ -352,12 +172,9 @@ function keyCheck(index) {
   }
 }
 
-
-
 function changePage(from, to) {
   document.getElementById("page" + from).classList.add("hidden");
   document.getElementById("page" + to).classList.remove("hidden");
-
 }
 
 function cleanSRC(src_id) {
@@ -378,11 +195,9 @@ function cleanButtons(j) {
 
   document.getElementById('sendSong').disabled = true;
   document.getElementById('receiveSong').disabled = true;
-
 }
 
-
-// Funzione che cerca su spotify le canzoni tramite la searchbar
+//search songs on spotify via searchbar
 async function search() {
 
   var data = document.getElementById("searchbar").value;
@@ -474,27 +289,22 @@ function errKey(err) {
 function retrieveSongs() {
   var ref = database.ref();
   ref.on('value', gotData, errData);
-
 }
 
 //function that retrieves 15 random songs (three for each mood) and associates to every song a random value
 //that will be used for displaying.
 function gotData(data) {
-
   for (var i = 0; i < 5; i++) {
     var tempArray = [];
-
     lastKey[i] = Object.keys(data.val()[i]).length;
 
     for (var j = 0; j < 3; j++) {
-
       var randID = Math.floor(random(lastKey[i]));
       var resultURI = data.val()[i][randID][0];
       var randomFreq = Math.floor(random(100));
       var tempArray2 = [];
       tempArray2.push(resultURI, randomFreq);
       tempArray.push(tempArray2);
-
     }
     foundSongs.push(tempArray);
   }
@@ -506,31 +316,20 @@ function errData(err) {
 }
 
 //set mood in section B
-
 function setMoodB(mood) {
   //moodCategory button defined from 5 to 9, moods from 0 to 4; This is the reason why we subtract 5 to moodCategory
   moodCategory = mood - 5;
-
   cleanButtons(5);
   document.getElementsByClassName("moodButton")[mood].classList.add("buttonDown");
   document.getElementById('receiveSong').disabled = false;
-
-
 }
 
 //receive Song
 function receiveSong() {
   if (isButtonChooseSongAbled == 1) {
     changePage('2b', '3b');
-
-    console.log(choosenSongUri);
     document.getElementById("spotifyPreviewB").src = 'https://open.spotify.com/embed?uri=' + choosenSongUri;
   }
-
-
-
-
 }
 
 var p5Slider2b = new p5(sketchSlider2b);
-// var p5Knob2b = new p5(sketchKnob2b);
