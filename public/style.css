@@ -89,6 +89,38 @@ body {
   background-color: grey;
 }
 
+/*---------------------knob slider-----------------------------*/
+
+.p1 rect {
+  fill: #000;
+}
+
+.p1 g polygon {
+  opacity: 1;
+}
+
+.p1 circle {
+  fill: #fff;
+  stroke: #000;
+  stroke-width: 2;
+  /* filter: url(#dropshadow); */
+}
+
+.p1 text {
+  display: none;
+  /* font-size: 10px;
+  fill: #57C7B6;
+  font-family: sans-serif;
+  font-weight: 300;
+  -webkit-transition: all .1s ease-in-out; */
+}
+
+.p1 text.active {
+  /* font-size: 15px;
+  -webkit-transition: all .3s ease-in-out; */
+}
+
+
 /*---------------------temporary-----------------------------*/
 
 button{
