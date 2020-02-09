@@ -9,6 +9,8 @@ var canvas2bSlider;
 var canvas2bKnob;
 var bar;
 
+
+
 var isButtonChooseSongAbled;
 var choosenSongUri;
 var transmissionDegrees;
@@ -40,47 +42,59 @@ var sketchSlider2b = function(s) {
     // rectMode(CENTER);
     s.background("red");
 
-    //create selector display
+    //reset the selectorStatus, 0 = no song selected
+    var selectorStatus = 0;
+
+    //create selector display with the five radio bars
     for (var i = 0; i < 5; i++) {
+
+      //the length of the bar is related to the height of the canvas,
       var barLenght = s.height * 6;
 
-
-
+      //if we are in the selected mood
       if (moodCategory == i) {
-        barX = s.map(transmissionDegrees, 0, 360, barLenght / 2 - s.width, -barLenght / 2 + s.width);
+        barX = s.map(transmissionDegrees, 0, 359, barLenght / 2 + s.width / 2, -barLenght / 2 + s.width / 2);
         s.fill("green");
 
+        //for cycle to go trough the three songs of the selected mood
         for (j = 0; j < 3; j++) {
 
           //this if is needed to wait the foundSongs array to be full
           if (!(foundSongs.length == 0)) {
 
+            //take casual value that was assigned to the song and stored in the found song Array
             var unMappedCasualx = foundSongs[i][j][1];
+
+            //take casualx and convert it to be placed on the bar
+            var casualX = s.map(unMappedCasualx, 0, 100, -barLenght / 2, barLenght / 2);
             var ellXPos = casualX + barX;
 
-            var casualX = s.map(unMappedCasualx, 0, 100, -barLenght / 2 + s.width, barLenght / 2 - s.width);
-
-            //when the slider is on a ellipse song
+            //when the slider is on an ellipse song (song is selected)
             if ((s.width / 2 - 20) < ellXPos && ellXPos < (s.width / 2 + 20)) {
               ellXPos = 200;
 
+              selectorStatus = 1;
+
+              //assign to a globar variable the corresponding SPOTIFY URI
               choosenSongUri = foundSongs[i][j][0];
 
 
             }
-
-            // s.text((Math.floor(casualX + barX) / 10), 100 * j, 200);
-
+            //drawing the ellipse song
             s.ellipse(ellXPos, s.height / 16 * (2 + (i * 3)), s.height / 8, s.height / 8)
           }
         }
 
 
       } else {
-        barX = 0
+        barX = 0;
       }
-      s.image(bar, barX, s.height / 16 * (2 + (i * 3)), s.height * 6, s.height / 8);
+
+      //drawing the five radio bar
+      s.image(bar, barX, s.height / 16 * (2 + (i * 3)), barLenght, s.height / 8);
     }
+
+    //setting the vertical positions hard stop of the selector
     var hardStop = s.height / 16 * (2 + (moodCategory * 3));
 
     //horizontal line
@@ -90,6 +104,16 @@ var sketchSlider2b = function(s) {
     //circle
     s.noFill();
     s.ellipse(s.width / 2, hardStop, s.height / 16);
+
+
+    //transmitt the result of the draw cycle to the global var isButtonChooseSongAbled
+    //and able or disable the button
+    if (selectorStatus == 1) {
+      isButtonChooseSongAbled = 1;
+      document.getElementById("receiveSong").classList.remove("inactive")
+    } else {isButtonChooseSongAbled = 0;
+    document.getElementById("receiveSong").classList.add("inactive")}
+
   };
 
 };
@@ -448,9 +472,12 @@ function setMoodB(mood) {
 
 //receive Song
 function receiveSong() {
+  if (isButtonChooseSongAbled == 1) {
+    changePage('2b', '3b');
 
     console.log(choosenSongUri);
     document.getElementById("spotifyPreviewB").src = 'https://open.spotify.com/embed?uri=' + choosenSongUri;
+  }
 
 
 

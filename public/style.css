@@ -77,11 +77,11 @@ body {
 }
 
 .inactive{
-  background-color: white;
+  background-color: grey;
 }
 
 .inactive:hover{
-  background-color: white;
+  background-color: grey;
 
 }
 
