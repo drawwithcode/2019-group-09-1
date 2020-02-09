@@ -9,6 +9,8 @@ var canvas2bSlider;
 var bar;
 var dial; //knob to move the tuner
 var statsArray = [];
+var dictionary = [];
+var favouriteSong = [];
 
 var isButtonChooseSongAbled;
 var choosenSongUri;
@@ -193,6 +195,10 @@ function cleanPage2a() {
   document.getElementById("searchbar").value = "";
 }
 
+function cleanPageStats() {
+  console.log('clean');
+}
+
 function cleanButtons(j) {
   for (i = j; i < j + 5; i++) {
     document.getElementsByClassName("moodButton")[i].classList.remove("buttonDown");
@@ -341,33 +347,25 @@ function receiveSong() {
 //******************************STATISTICS*PAGE************************************************
 function loadStats() {
   for (var i = 0; i < 5; i++) {
-    test(i);
+
+    retrieveStats(i);
   }
 }
 
-
-// function gotMood(data) {
-//   if (lastKey[index] == null) {
-//     lastKey[index] = 0;
-//   } else {
-//     lastKey[index] = Object.keys(data.val()).length;
-//   }
-// }
-
-async function test(i) {
+async function retrieveStats(i) {
   var ref = database.ref();
   ref.on('value', gotStats, errStats);
 
   function gotStats(data) {
     statsArray[i] = Object.keys(data.val()[i]).length;
     var n = 1;
-    var frames=statsArray[i]/150;
+    var frames = statsArray[i] / 150;
 
     setInterval(() => {
       if (n > 150) {
         return document.getElementById('counterMood' + i).innerHTML = statsArray[i];
       }
-      document.getElementById('counterMood' + i).innerHTML = Math.floor(frames*n);
+      document.getElementById('counterMood' + i).innerHTML = Math.floor(frames * n);
       n++;
     }, frames);
   }
@@ -376,5 +374,56 @@ async function test(i) {
     console.log('Error: ' + err);
   }
 }
+
+function readDictionary() {
+  for (var i = 0; i < 5; i++) {
+    writeDictionary(i);
+  }
+}
+
+function writeDictionary(i) {
+  var ref = database.ref();
+  ref.on('value', gotDictionary, errDictionary);
+
+  function gotDictionary(data) {
+    //per ogni mood
+    // console.log('max: '+max);
+    for (var j = 0; j < statsArray[i]; j++) {
+      //per ogni elemento dentro un mood
+      // var tot = dictionary.length;
+      if (dictionary.length == 0) {
+        //se il dizionario è vuoto
+        var tempArray3 = [data.val()[i][j][1], 1];
+        dictionary.push(tempArray3);
+        favouriteSong = tempArray3;
+      } else {
+        //confronto con tutti gli elementi del dizionario
+        for (var n = 0; n < dictionary.length; n++) {
+          if (data.val()[i][j][1] == dictionary[n][0]) {
+            dictionary[n][1] += 1;
+            if(dictionary[n][1] > favouriteSong[1]){
+              favouriteSong = dictionary[n];
+              console.log(favouriteSong);
+            }
+            break;
+          } else {
+            if (n == dictionary.length - 1) {
+              var tempArray3 = [data.val()[i][j][1], 1];
+              dictionary.push(tempArray3);
+              break;
+            }
+          }
+        }
+      }
+    }
+    console.log(dictionary);
+  }
+
+  function errDictionary() {
+    console.log('Error: ' + err);
+  }
+}
+
+
 
 var p5Slider2b = new p5(sketchSlider2b);
