@@ -2,12 +2,13 @@ var socket;
 var searchResults; //stores search results
 var database;
 var songINFO;
-var lastKey = [];
+var lastKey = []; //array used to store the number of songs inside a moodCategory
 var moodCategory = 4; //mood category chosen by user. Its initial value is 4 by default
 var foundSongs = [];
 var canvas2bSlider;
 var bar;
-var dial;
+var dial; //knob to move the tuner
+var statsArray = [];
 
 var isButtonChooseSongAbled;
 var choosenSongUri;
@@ -30,6 +31,7 @@ var sketchSlider2b = function(s) {
 
     //reset the selectorStatus, 0 = no song selected
     var selectorStatus = 0;
+    //move the cursor according to the knob slider rotation
     cursorX = s.map(transmissionDegrees, 0, 359, 0, s.width);
 
     //create selector display with the five radio bars
@@ -97,6 +99,8 @@ var sketchSlider2b = function(s) {
 };
 
 function setup() {
+
+  //define the P1 style for a new knob slider from knob.js
   Ui.P1 = function() {};
   Ui.P1.prototype = Object.create(Ui.prototype);
   Ui.P1.prototype.createElement = function() {
@@ -150,6 +154,7 @@ function setup() {
 }
 
 function draw() {
+  //update the value of transmissionDegrees which is used to move the cursor
   transmissionDegrees = dial.value;
 }
 
@@ -329,6 +334,46 @@ function receiveSong() {
   if (isButtonChooseSongAbled == 1) {
     changePage('2b', '3b');
     document.getElementById("spotifyPreviewB").src = 'https://open.spotify.com/embed?uri=' + choosenSongUri;
+  }
+}
+
+
+//******************************STATISTICS*PAGE************************************************
+function loadStats() {
+  for (var i = 0; i < 5; i++) {
+    test(i);
+  }
+}
+
+
+// function gotMood(data) {
+//   if (lastKey[index] == null) {
+//     lastKey[index] = 0;
+//   } else {
+//     lastKey[index] = Object.keys(data.val()).length;
+//   }
+// }
+
+async function test(i) {
+  var ref = database.ref();
+  ref.on('value', gotStats, errStats);
+
+  function gotStats(data) {
+    statsArray[i] = Object.keys(data.val()[i]).length;
+    var n = 1;
+    var frames=statsArray[i]/150;
+
+    setInterval(() => {
+      if (n > 150) {
+        return document.getElementById('counterMood' + i).innerHTML = statsArray[i];
+      }
+      document.getElementById('counterMood' + i).innerHTML = Math.floor(frames*n);
+      n++;
+    }, frames);
+  }
+
+  function errStats() {
+    console.log('Error: ' + err);
   }
 }
 

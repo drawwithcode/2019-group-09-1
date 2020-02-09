@@ -21,102 +21,131 @@
 
   <div id="page1" class="hidden">
     <button id="send" onclick="changePage('1','2a')">Transmit a song</button>
-    <button id="receive" onclick="changePage('1','2b') ; retrieveSongs()">Look for a suggestion</button>
+    <button id="receive" onclick="changePage('1','2b'); retrieveSongs()">Look for a suggestion</button>
+    <button id="info" onclick="changePage('1', 'Stats'); loadStats()">Statistics</button>
   </div>
 
-  <!--********************************************************************************************************************************************
+  <div id="pageStats" class="hidden">
+    <button onclick="changePage('Stats','1')">Go back</button>
+    <div class="statistics">
+      <p>MOOD 0</p>
+      <div id="counterMood0" class="counterCategory">
+        0
+      </div>
+
+      <p>MOOD 1</p>
+      <div id="counterMood1" class="counterCategory">
+        0
+      </div>
+
+      <p>MOOD 2</p>
+      <div id="counterMood2" class="counterCategory">
+        0
+      </div>
+
+      <p>MOOD 3</p>
+      <div id="counterMood3" class="counterCategory">
+        0
+      </div>
+
+      <p>MOOD 4</p>
+      <div id="counterMood4" class="counterCategory">
+        0
+      </div>
+    </div>
+    <!--********************************************************************************************************************************************
   ***************************************************************************************************************************************************
   *************************** SECTION A *********************************************************************************************************
   ************************************************************************************************************************************************ -->
 
-  <!--Pagina della ricerca per inserire una canzone -->
-  <div id="page2a" class="hidden">
-    <button onclick="changePage('2a','1');cleanPage2a();">Home</button>
+    <!--Pagina della ricerca per inserire una canzone -->
+    <div id="page2a" class="hidden">
+      <button onclick="changePage('2a','1');cleanPage2a();">Home</button>
 
-    <input type="text" id="searchbar" onkeyup="search()" placeholder="Search a song...">
+      <input type="text" id="searchbar" onkeyup="search()" placeholder="Search a song...">
 
-    <div id="resultsContainer">
-      <div id="searchResults0" class="result" onclick="selectedResult(0)"></div>
-      <div id="searchResults1" class="result" onclick="selectedResult(1)"></div>
-      <div id="searchResults2" class="result" onclick="selectedResult(2)"></div>
-      <div id="searchResults3" class="result" onclick="selectedResult(3)"></div>
-      <div id="searchResults4" class="result" onclick="selectedResult(4)"></div>
-      <div id="searchResults5" class="result" onclick="selectedResult(5)"></div>
-    </div>
-  </div>
-
-
-  <!--Pagina di conferma per inserire la canzone -->
-  <div id="page3a" class="hidden">
-    <div id="page3a_title">Would you like to suggest this song?</div>
-
-    <!--DIV contenente le info della canzone-->
-    <div id="page3a_card">
-      <iframe id="spotifyPreviewA" src="" width="250" height="330" frameborder="0" allowtransparency="true"></iframe>
-      <div id="page3a_cover">
-        <!-- <img src="" id="cover"> -->
-      </div>
-      <div id="page3a_song">
-      </div>
-      <div id="page3a_artist">
-      </div>
-      <div id="page3a_other">
+      <div id="resultsContainer">
+        <div id="searchResults0" class="result" onclick="selectedResult(0)"></div>
+        <div id="searchResults1" class="result" onclick="selectedResult(1)"></div>
+        <div id="searchResults2" class="result" onclick="selectedResult(2)"></div>
+        <div id="searchResults3" class="result" onclick="selectedResult(3)"></div>
+        <div id="searchResults4" class="result" onclick="selectedResult(4)"></div>
+        <div id="searchResults5" class="result" onclick="selectedResult(5)"></div>
       </div>
     </div>
 
-    <button class="moodButton" onclick="setMoodA(0)">HAPPY</button>
-    <button class="moodButton" onclick="setMoodA(1)">SAD</button>
-    <button class="moodButton" onclick="setMoodA(2)">RELAXED</button>
-    <button class="moodButton" onclick="setMoodA(3)">INSPIRED</button>
-    <button class="moodButton" onclick="setMoodA(4)">ANGRY</button>
 
-    <button disabled id="sendSong" class="inactive" onclick="sendSong();changePage('3a','4a');cleanSRC('spotifyPreviewA');cleanPage2a()">YES!</button>
+    <!--Pagina di conferma per inserire la canzone -->
+    <div id="page3a" class="hidden">
+      <div id="page3a_title">Would you like to suggest this song?</div>
 
-    <button id="goBackTo2a" onclick="changePage('3a','2a');cleanSRC('spotifyPreviewA');cleanPage2a();cleanButtons(0)">No, go back</button>
-  </div>
+      <!--DIV contenente le info della canzone-->
+      <div id="page3a_card">
+        <iframe id="spotifyPreviewA" src="" width="250" height="330" frameborder="0" allowtransparency="true"></iframe>
+        <div id="page3a_cover">
+          <!-- <img src="" id="cover"> -->
+        </div>
+        <div id="page3a_song">
+        </div>
+        <div id="page3a_artist">
+        </div>
+        <div id="page3a_other">
+        </div>
+      </div>
 
-  <div id="page4a" class="hidden">
-    <div>Song transmitted successfully</div>
-    <button onclick="changePage('4a','1')">Go back to homepage</button>
-  </div>
+      <button class="moodButton" onclick="setMoodA(0)">HAPPY</button>
+      <button class="moodButton" onclick="setMoodA(1)">SAD</button>
+      <button class="moodButton" onclick="setMoodA(2)">RELAXED</button>
+      <button class="moodButton" onclick="setMoodA(3)">INSPIRED</button>
+      <button class="moodButton" onclick="setMoodA(4)">ANGRY</button>
 
-  <!--********************************************************************************************************************************************
+      <button disabled id="sendSong" class="inactive" onclick="sendSong();changePage('3a','4a');cleanSRC('spotifyPreviewA');cleanPage2a()">YES!</button>
+
+      <button id="goBackTo2a" onclick="changePage('3a','2a');cleanSRC('spotifyPreviewA');cleanPage2a();cleanButtons(0)">No, go back</button>
+    </div>
+
+    <div id="page4a" class="hidden">
+      <div>Song transmitted successfully</div>
+      <button onclick="changePage('4a','1')">Go back to homepage</button>
+    </div>
+
+    <!--********************************************************************************************************************************************
 ***************************************************************************************************************************************************
 *************************** SECTION B *********************************************************************************************************
 ************************************************************************************************************************************************ -->
 
-  <div id="page2b" class="hidden">
-    page2b
-    <div id="sketch2bSlider">
+    <div id="page2b" class="hidden">
+      page2b
+      <div id="sketch2bSlider">
+      </div>
+
+      Cerca una canzone
+      <div id="containerButtonsB">
+        <button class="moodButton" onclick="setMoodB(5)">HAPPY</button>
+        <button class="moodButton" onclick="setMoodB(6)">SAD</button>
+        <button class="moodButton" onclick="setMoodB(7)">RELAXED</button>
+        <button class="moodButton" onclick="setMoodB(8)">INSPIRED</button>
+        <button class="moodButton" onclick="setMoodB(9)">ANGRY</button>
+      </div>
+
+      <div>
+        <!--input range slider from knob.js library-->
+        <input id='test' class="preset1" type="range" min="0" max="360" data-width="100" data-height="100" data-angleOffset="180" data-angleRange="360" step="3">
+      </div>
+
+      <button id="receiveSong" onclick="receiveSong()">Choose this song</button>
     </div>
 
-    Cerca una canzone
-    <div id="containerButtonsB">
-      <button class="moodButton" onclick="setMoodB(5)">HAPPY</button>
-      <button class="moodButton" onclick="setMoodB(6)">SAD</button>
-      <button class="moodButton" onclick="setMoodB(7)">RELAXED</button>
-      <button class="moodButton" onclick="setMoodB(8)">INSPIRED</button>
-      <button class="moodButton" onclick="setMoodB(9)">ANGRY</button>
+    <div id="page3b" class="hidden">
+      <div id="page3a_title">Someone suggested this song:</div>
+
+      <!--DIV contenente le info della canzone-->
+      <div id="page3b_card">
+        <iframe id="spotifyPreviewB" src="" width="250" height="330" frameborder="0" allowtransparency="true"></iframe>
+      </div>
+
+      <button id="fromPage3bToPage1" onclick="changePage('3b','1');cleanButtons(5);cleanSRC('spotifyPreviewB')">No, go back</button>
     </div>
-
-    <div>
-      <!--input range slider from knob.js library-->
-      <input id='test' class="preset1" type="range" min="0" max="360" data-width="100" data-height="100" data-angleOffset="180" data-angleRange="360" step="3">
-    </div>
-
-    <button id="receiveSong" onclick="receiveSong()">Choose this song</button>
-  </div>
-
-  <div id="page3b" class="hidden">
-    <div id="page3a_title">Someone suggested this song:</div>
-
-    <!--DIV contenente le info della canzone-->
-    <div id="page3b_card">
-      <iframe id="spotifyPreviewB" src="" width="250" height="330" frameborder="0" allowtransparency="true"></iframe>
-    </div>
-
-    <button id="fromPage3bToPage1" onclick="changePage('3b','1');cleanButtons(5);cleanSRC('spotifyPreviewB')">No, go back</button>
-  </div>
 
 
 </body>
