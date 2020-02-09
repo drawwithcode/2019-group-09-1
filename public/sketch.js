@@ -265,7 +265,7 @@ function setup() {
 
 }
 
-function mousePressed(){
+function mouseDragged(){
   transmissionDegrees = dial.value;
   console.log(dial.value);
 }
