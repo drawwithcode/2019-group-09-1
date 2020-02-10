@@ -1,5 +1,4 @@
 # VIBE.TUNER
-VIBE.TUNER is a web app with the aim of sending and receiving advice based on user's mood.
 
 ## Table of Contents
 1. [Team](#team)
@@ -23,6 +22,8 @@ Politecnico di Milano - Scuola del Design <br>
 Faculty: Michele Mauri, Tommaso Elli
 
 ## Project Idea
+*VIBE.TUNER* is a web app project with the aim of sending and receiving musical advice based on user's mood. This app is made up of two features. On one side the user can advise a song which is associates with a mood chosen by user himself. Once sent, the song is ready to be recommended to another user with the same mood. Indeed, on the other side the user can receive recommended random songs based on the choice of mood made by the user. <br>
+The experience is made more interesting with a visual graphic inspired by the old radio. The user will interact with knobs and wheels to search on a frequency scale the song he wants to receive as advice.
 
 ## Design challenges
 
