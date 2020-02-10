@@ -239,7 +239,7 @@ async function search() {
     }
 
     for (var i = 0; i < Object.keys(searchResults.results).length; i++) {
-      document.getElementsByClassName("result")[i].classList.add('remove');
+      document.getElementsByClassName("result")[i].classList.remove('hidden');
       document.getElementById('searchResults' + i).innerHTML = searchResults.results[i].song + ' by ' + searchResults.results[i].artist;
     }
   }
