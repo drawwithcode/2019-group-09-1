@@ -1,3 +1,42 @@
-# P5-empty-project
-This repository is the starting point of the assignments given in the elective course [Creative Coding at Politecnico di Milano](https://www11.ceda.polimi.it/schedaincarico/schedaincarico/controller/scheda_pubblica/SchedaPublic.do?&evn_default=evento&c_classe=696598&__pj0=0&__pj1=3ed8420c42c849845b5caa3de626e8fc).
-Browse [this website](https://drawwithcode.github.io/) if you want to know more about it.
+# VIBE.TUNER
+VIBE.TUNER is a web app with the aim of sending and receiving advice based on user's mood.
+
+## Table of Contents
+1. [Team](#team)
+2. [Course](#Course reference and academic year)
+3. [Project Idea](#project-idea)
+4. [Design challenges](#Design challenges)
+5. [Code challenges](#Code challenges)
+6. [Inspirations](#Inspirations/References)
+7. [Credits](#Credits)
+
+## Team
+*VIBE.TUNER* was developed by:
++ Carlotta Bacchini
++ Stefano Ferrari
++ Alessandro Pennacchioni
++ Raffaele Riccardelli
+
+## Course reference and academic year
+Creative Coding 2019/2020 [(link)](https://drawwithcode.github.io/2019/)
+Politecnico di Milano - Scuola del Design
+Faculty: Michele Mauri, Tommaso Elli
+
+## Project Idea
+
+## Design challenges
+
+## Code challenges
+
+## Inspirations
+
+## Credits
+*VIBE.TUNER* was designed with the following third party libraries and tools:
++ [p5.js] (https://p5js.org/)
++ [node.js and node modules] (https://nodejs.org/it/)
++ [socket.IO] (https://socket.io/)
++ [spotify Web Api] (https://developer.spotify.com/documentation/web-api/)
++ [spotify-web-api-node] (https://github.com/thelinmichael/spotify-web-api-node)
++ [Firebase database] (https://firebase.google.com/docs/database)
++ [dotenv] (https://github.com/motdotla/dotenv)
++ [Jim Knopf (Knob.js)] (https://github.com/eskimoblood/jim-knopf)

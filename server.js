@@ -4,6 +4,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 var socket = require('socket.io');
+//require spotify-web-api-node library to make calls to the api easier
 var SpotifyWebApi = require('spotify-web-api-node');
 
 var express = require('express');
@@ -22,11 +23,14 @@ app.use(express.json({
   limit: '1mb'
 }));
 
+//spotify client credentials
 var spotifyApi = new SpotifyWebApi({
   clientId: process.env.CLIENTID,
   clientSecret: process.env.CLIENTSECRET
 });
 
+
+//post request from the client to get the access token and a list of song given the query by the user
 app.post('/selection', (request, response) => {
   console.log(request.body);
 
@@ -58,6 +62,7 @@ app.post('/selection', (request, response) => {
       // Go through the first page of results
       var firstPage = data.body.tracks.items;
 
+      //list of song found on spotify given the input of the user
       var tracklist = [];
 
       firstPage.forEach(function(track, index) {
@@ -80,20 +85,15 @@ app.post('/selection', (request, response) => {
 
 });
 
+//post request to give back the specific info about the selected song
 app.post('/selectedSong', (request, response) => {
-  console.log("'" + request.body.songID + "'");
   var songID_string = request.body.songID.toString();
 
   return spotifyApi.getTrack(songID_string).then(function(data) {
-    console.log(data.body);
-    //nome canzone
-    //nome artista
-    //nome album
-    //cover album
-    //id canzone
 
     track = data.body;
 
+    //we only need the URI to make the spotify snippet and the ID that will be stored in our database
     var songINFO = {
       uri: track.uri,
       id: track.id

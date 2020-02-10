@@ -21,7 +21,38 @@
 
   <div id="page1" class="hidden">
     <button id="send" onclick="changePage('1','2a')">Transmit a song</button>
-    <button id="receive" onclick="changePage('1','2b') ; retrieveSongs()">Look for a suggestion</button>
+    <button id="receive" onclick="changePage('1','2b'); retrieveSongs()">Look for a suggestion</button>
+    <button id="info" onclick="changePage('1', 'Stats'); loadStats(); readDictionary()">Statistics</button>
+  </div>
+
+  <div id="pageStats" class="hidden">
+    <button onclick="changePage('Stats','1');cleanPageStats();">Go back</button>
+    <div class="statistics">
+      <p>MOOD 0</p>
+      <div id="counterMood0" class="counterCategory">
+        0
+      </div>
+
+      <p>MOOD 1</p>
+      <div id="counterMood1" class="counterCategory">
+        0
+      </div>
+
+      <p>MOOD 2</p>
+      <div id="counterMood2" class="counterCategory">
+        0
+      </div>
+
+      <p>MOOD 3</p>
+      <div id="counterMood3" class="counterCategory">
+        0
+      </div>
+
+      <p>MOOD 4</p>
+      <div id="counterMood4" class="counterCategory">
+        0
+      </div>
+    </div>
   </div>
 
   <!--********************************************************************************************************************************************
