@@ -3,10 +3,10 @@ VIBE.TUNER is a web app with the aim of sending and receiving advice based on us
 
 ## Table of Contents
 1. [Team](#team)
-2. [Course](#Course reference and academic year)
+2. [Course](#Course_reference_and_academic_year)
 3. [Project Idea](#project-idea)
-4. [Design challenges](#Design challenges)
-5. [Code challenges](#Code challenges)
+4. [Design challenges](#Design_challenges)
+5. [Code challenges](#Code_challenges)
 6. [Inspirations](#Inspirations/References)
 7. [Credits](#Credits)
 
