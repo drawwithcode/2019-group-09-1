@@ -25,6 +25,13 @@ body {
                               supported by Chrome, Opera and Firefox */
 }
 
+a:focus,
+button:focus,
+input:focus,
+:focus {
+  outline: none;
+}
+
 /*--------------------------------------------------------------*/
 /*------------------font links ---------------------------------*/
 /*--------------------------------------------------------------*/
@@ -248,195 +255,260 @@ body {
     margin: auto;
   }
 
+  /*--------------------------------------------------------------*/
+  /*------------------ section A ---------------------------------*/
+  /*--------------------------------------------------------------*/
+  /*-------------------page 2A  ---------------------------------*/
+  #page2aTitle {
+    font-family: "Bazar";
+    font-size: 2.5vw;
+    text-align: center;
+    margin-top: 10vh;
+    color: #ff8871;
+  }
+
+  #searchBarHomeButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 7vh;
+  }
+
+  #resultsContainerParent {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: -4px;
+  }
+
+  #searchbar {
+    margin-left: 10px;
+    width: 70vw;
+    max-width: 700px;
+    border: 3px solid #ff8871;
+    padding: 7px;
+    height: 40px;
+    border-radius: 5px;
+    outline: none;
+    font-size: 15px;
+    background: rgb(211, 216, 232);
+    background: linear-gradient(0deg, rgba(211, 216, 232, 1) 0%, rgba(153, 169, 222, 1) 100%);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+  }
+
+  #buttonHomePage2a, #placeholder2a {
+    font-family: "HK Semibold";
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: rgb(255, 136, 113);
+    text-align: center;
+    color: #080f24;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+  }
+
+  #resultsContainer {
+    width: 70vw;
+    max-width: 700px;
+    margin-left: 10px;
+    border-style: solid;
+    border-color: #ff8871;
+    border-width: 0px 3px 3px 3px;
+    border-radius: 0px 0px 5px 5px;
+    outline: none;
+    font-size: 15px;
+    background: rgb(211, 216, 232);
+    background: linear-gradient(0deg, rgba(211, 216, 232, 1) 0%, rgba(153, 169, 222, 1) 100%);
+    box-sizing: border-box;
+  }
+
+  .result {
+    font-family: 'HK Regular';
+    height: 20px;
+    padding-top: 7px;
+    padding-left: 10px;
+    background: linear-gradient(0deg, rgba(211, 216, 232, 1) 0%, rgba(153, 169, 222, 1) 100%);
+  }
+
+  /*-------------------page 3a  ---------------------------------*/
+  #page3aPopup {
+    background: rgb(15, 26, 64);
+    background: radial-gradient(circle, rgba(15, 26, 64, 1) 0%, rgba(3, 6, 15, 1) 100%);
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #ff8871;
+    width: 40vw;
+    min-width: 480px;
+    margin: 8vh auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #page3a_title {
+    font-family: "Bazar";
+    font-size: 2vw;
+    text-align: center;
+    color: #ff8871;
+  }
+
+  #page3a_subtitle {
+    font-family: "Bazar";
+    font-size: 1.5vw;
+    text-align: center;
+    color: #ff8871;
+  }
+
+  .moodButtonsLabels {
+    width: 5vw;
+    overflow: visible;
+    text-align: center;
+    line-height: 3vw;
+  }
+
+  #goBackTo2a {
+    background: transparent;
+    color: #ff8871;
+    border-style: none;
+    cursor: pointer;
+    outline: none;
+    font-size: 3vw;
+    width: 100%;
+    text-align: right;
+    padding-right: 10px;
+  }
+
+  #sendSong{
+    width: 55%;
+    height: 6vh;
+    font-family: "HK Semibold";
+    text-align: center;
+    font-size: 26px;
+    color: #ff8871;
+    cursor: pointer;
+    margin: 2vh 0 3vh 0;
+    text-shadow: 1px 1px 3px rgba(8, 15, 36, 0.5);
+    border-radius: 10px;
+    background: #ff8871;
+    background: -moz-linear-gradient(#ff8871, #ffc7bd);
+    background: -ms-linear-gradient(#ff8871, #ffc7bd);
+    background: -o-linear-gradient(#ff8871, #ffc7bd);
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#ff8871), to(#ffc7bd));
+    background: -webkit-linear-gradient(#ff8871, #ffc7bd);
+    background: linear-gradient(#ff8871, #ffc7bd);
+    position: relative;
+    color: #080f24;
+    font-size: 20px;
+    text-align: center;
+    line-height: 6vh;
+    box-shadow:
+      inset 0 2px 3px rgba(255, 255, 255, 0.13),
+      0 5px 6px rgba(44, 55, 100, 0.3),
+      0 10px 8px 3px rgba(44, 55, 100, 0.2);
+  }
+
+  @media only screen and (max-width: 1200px) {
+    #page3a_title {
+      font-family: "Bazar";
+      font-size: 24px;
+      text-align: center;
+      color: #ff8871;
+    }
+
+    #page3a_subtitle {
+      font-family: "Bazar";
+      font-size: 18px;
+      text-align: center;
+      color: #ff8871;
+    }
+
+    .moodButtonsLabels {
+      width: 42.1px;
+      overflow: visible;
+      text-align: center;
+      font-size: 9.6px;
+      line-height: 36px;
+    }
+
+    #goBackTo2a {
+      background: transparent;
+      color: #ff8871;
+      border-style: none;
+      cursor: pointer;
+      outline: none;
+      font-size: 36px;
+      width: 100%;
+      text-align: right;
+      padding-right: 10px;
+    }
+  }
+
+  #spotifyPreviewA {
+    box-sizing: border-box;
+    width: 30vw;
+    min-width: 250px;
+    max-width: 400px;
+    margin: 3vh 0vw 3vh 0vw;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #ff8871;
+  }
+
+  .moodButton {
+    width: 5vw;
+    min-width: 60px;
+    height: 5vw;
+    min-height: 60px;
+    border-radius: 50%;
+    background: #2c3764;
+    background: -moz-linear-gradient(#cad1e8, #8491bf);
+    background: -ms-linear-gradient(#cad1e8, #8491bf);
+    background: -o-linear-gradient(#cad1e8, #8491bf);
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#cad1e8), to(#8491bf));
+    background: -webkit-linear-gradient(#cad1e8, #8491bf);
+    background: linear-gradient(#cad1e8, #8491bf);
+    box-shadow:
+      inset 0 2px 3px rgba(255, 255, 255, 0.13),
+      0 5px 8px rgba(0, 0, 0, 0.3),
+      0 10px 10px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  #moodButtonsContA {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 4vw;
+    width: 30vw;
+    min-width: 360px;
+    margin: auto;
+    margin-top: 3vw;
+  }
+
+  .moodButtonsContA2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'HK Regular';
+    color: #c9d1ea;
+    font-size: 0.8vw;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
 
 
-
-/*--------------------------------------------------------------*/
-/*------------------ section A ---------------------------------*/
-/*--------------------------------------------------------------*/
-
-/*-------------------page 2A  ---------------------------------*/
-
-#page2aTitle {
-  font-family: "Bazar";
-  font-size: 2.5vw;
-  text-align: center;
-  margin-top: 10vh;
-  color: #ff8871;
+  /*--------------------------------------------------------------*/
+  /*------------------ section B ---------------------------------*/
+  /*--------------------------------------------------------------*/
 }
-
-
-#searchBarHomeButton {
- display: flex;
- flex-direction: row;
- justify-content: center;
- margin-top:7vh;
-}
-
-#resultsContainerParent {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin-top:-4px;
-
-}
-
-#searchbar {
-  margin-left: 10px;
-  width: 70vw;
-  max-width: 700px;
-  border: 3px solid #ff8871;
-  padding: 7px;
-  height: 40px;
-  border-radius: 5px;
-  outline: none;
-  font-size: 15px;
-  background: rgb(211, 216, 232);
-  background: linear-gradient(0deg, rgba(211, 216, 232, 1) 0%, rgba(153, 169, 222, 1) 100%);
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
-
-}
-
-#buttonHomePage2a , #placeholder2a {
-  font-family: "HK Semibold";
-  width: 40px;
-  height: 40px;
-  border: none;
-  background: rgb(255, 136, 113);
-  text-align: center;
-  color: #080f24;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 15px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
-}
-
-
-#resultsContainer {
-
-  width: 70vw;
-  max-width: 700px;
-  margin-left: 10px;
-  border-style: solid;
-  border-color: #ff8871;
-  border-width: 0px 3px 3px 3px;
-
-
-  border-radius: 0px 0px 5px 5px;
-  outline: none;
-  font-size: 15px;
-  background: rgb(211, 216, 232);
-  background: linear-gradient(0deg, rgba(211, 216, 232, 1) 0%, rgba(153, 169, 222, 1) 100%);
-
-  box-sizing: border-box;
-}
-.result {
-
-  font-family: 'HK Regular';
-  height: 20px;
-  padding-top: 7px;
-  padding-left: 10px;
-  background: linear-gradient(0deg, rgba(211, 216, 232, 1) 0%, rgba(153, 169, 222, 1) 100%);
-
-
-
-
-}
-
-
-/*-------------------page 3a  ---------------------------------*/
-
-#page3a {
-  background: rgb(15, 26, 64);
-  background: radial-gradient(circle, rgba(15, 26, 64, 1) 0%, rgba(3, 6, 15, 1) 100%);
-  border-radius: 20px;
-  border-style: solid;
-  border-width: 2px;
-  border-color: #ff8871;
-  width: 40vw;
-  margin: auto;
-}
-
-#page3a_title{
-  font-family: "Bazar";
-  font-size: 2vw;
-  margin: 1vw 0 1vw 0;
-  text-align: center;
-  color: #ff8871;
-}
-
-#page3a_subtitle{
-  font-family: "Bazar";
-  font-size: 1.5vw;
-  margin: 1vw 0 1vw 0;
-  text-align: center;
-  color: #ff8871;
-}
-
-#spotifyPreviewA{
-  box-sizing: border-box;
-  width: 30vw;
-  margin: 0 5vw 0 5vw;
-  border-radius: 5px;
-  border-style: solid;
-  border-width: 2px;
-  border-color: #ff8871;
-
-}
-
-.moodButton {
-  width: 5vw;
-  height: 5vw;
-  border-radius: 50%;
-  background: #2c3764;
-  background: -moz-linear-gradient(#cad1e8, #8491bf);
-  background: -ms-linear-gradient(#cad1e8, #8491bf);
-  background: -o-linear-gradient(#cad1e8, #8491bf);
-  background: -webkit-gradient(linear, 0 0, 0 100%, from(#cad1e8), to(#8491bf));
-  background: -webkit-linear-gradient(#cad1e8, #8491bf);
-  background: linear-gradient(#cad1e8, #8491bf);
-  box-shadow:
-    inset 0 2px 3px rgba(255, 255, 255, 0.13),
-    0 5px 8px rgba(0, 0, 0, 0.3),
-    0 10px 10px 4px rgba(0, 0, 0, 0.3);
-}
-
-#moodButtonsContA {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-bottom: 4vw;
-  width: 30vw;
-  margin: auto;
-  margin-top:3vw;
-
-}
-
-.moodButtonsContA2 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items:center;
-  color: white;
-  font-size: 1vw;
-  line-height: 3vw;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-
-
-}
-
-
-/*--------------------------------------------------------------*/
-/*------------------ section B ---------------------------------*/
-/*--------------------------------------------------------------*/
-}
-
-
-
 
 /*------------------Code 07/2 ---------------------------------*/
-.result {
-}
+.result {}
 
 .result:hover {
   background-color: antiquewhite;

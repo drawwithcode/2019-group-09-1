@@ -214,8 +214,11 @@ async function search() {
   if (data == false) {
     for (var i = 0; i < 6; i++) {
       document.getElementsByClassName("result")[i].innerHTML = "";
+      document.getElementById("resultsContainer").classList.add('hidden');
     }
   } else {
+
+    document.getElementById("resultsContainer").classList.remove('hidden');
 
     var dataJSON = {
       data
@@ -232,9 +235,11 @@ async function search() {
 
     for (var i = 0; i < 6; i++) {
       document.getElementsByClassName("result")[i].innerHTML = "";
+      document.getElementById("resultsContainer").classList.add('hidden');
     }
 
     for (var i = 0; i < Object.keys(searchResults.results).length; i++) {
+      document.getElementById("resultsContainer").classList.remove('hidden');
       document.getElementById('searchResults' + i).innerHTML = searchResults.results[i].song + ' by ' + searchResults.results[i].artist;
     }
   }

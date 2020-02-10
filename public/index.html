@@ -87,7 +87,7 @@
   ************************************************************************************************************************************************ -->
 
   <!--page research a song  -->
-  <div id="page2a" class="hidden" >
+  <div id="page2a" class="hidden">
 
     <div id="page2aTitle"> SEND A SUGGESTION</div>
 
@@ -98,10 +98,10 @@
         <input type="text" id="searchbar" onkeyup="search()" placeholder="Search a song...">
       </div>
 
-      <div id="resultsContainerParent" >
+      <div id="resultsContainerParent">
         <div id="placeholder2a" style=" visibility: hidden;"></div>
 
-        <div id="resultsContainer">
+        <div id="resultsContainer" class="hidden">
           <div id="searchResults0" class="result" onclick="selectedResult(0)"></div>
           <div id="searchResults1" class="result" onclick="selectedResult(1)"></div>
           <div id="searchResults2" class="result" onclick="selectedResult(2)"></div>
@@ -114,24 +114,35 @@
   </div>
 
   <!--Pagina di conferma per inserire la canzone -->
-  <div id="page3a"  class="" >
-
-    <div id="page3a_title">WOULD YOU LIKE TO SUGGEST THIS SONG?</div>
+  <div id="page3a" class="">
+    <div id="page3aPopup">
+      <input type="button" id="goBackTo2a" value="&times;" onclick="changePage('3a','2a');cleanSRC('spotifyPreviewA');cleanPage2a();cleanButtons(0)">
+      <div id="page3a_title">WOULD YOU LIKE TO SUGGEST THIS SONG?</div>
 
       <iframe id="spotifyPreviewA" src="https://open.spotify.com/embed?uri=spotify:track:50rO1T1hHJD70uRjX1uthz" width="250" height="330" frameborder="0" allowtransparency="true"></iframe>
 
-   <div id="page3a_subtitle">CHOOSE A MOOD FOR THIS SONG</div>
+      <div id="page3a_subtitle">CHOOSE A MOOD FOR THIS SONG</div>
 
-   <div id="moodButtonsContA">
-    <div class="moodButtonsContA2"><button class="moodButton" onclick="setMoodA(0)"></button><div>ROMANTIC</div></div>
-    <div class="moodButtonsContA2"><button class="moodButton" onclick="setMoodA(1)"></button><div>INTENSE</div></div>
-    <div class="moodButtonsContA2"><button class="moodButton" onclick="setMoodA(2)"></button><div>CHEERFUL</div></div>
-    <div class="moodButtonsContA2"><button class="moodButton" onclick="setMoodA(3)"></button><div>NOSTALGIC</div></div>
-    <div class="moodButtonsContA2"><button class="moodButton" onclick="setMoodA(4)"></button><div>RELAXED</div></div>
-</div>
-    <button disabled id="sendSong" class="inactive" onclick="sendSong();changePage('3a','4a');cleanSRC('spotifyPreviewA');cleanPage2a()">YES!</button>
+      <div id="moodButtonsContA">
+        <div class="moodButtonsContA2"><button class="moodButton" onclick="setMoodA(0)"></button>
+          <div class="moodButtonsLabels">ROMANTIC</div>
+        </div>
+        <div class="moodButtonsContA2"><button class="moodButton" onclick="setMoodA(1)"></button>
+          <div class="moodButtonsLabels">INTENSE</div>
+        </div>
+        <div class="moodButtonsContA2"><button class="moodButton" onclick="setMoodA(2)"></button>
+          <div class="moodButtonsLabels">CHEERFUL</div>
+        </div>
+        <div class="moodButtonsContA2"><button class="moodButton" onclick="setMoodA(3)"></button>
+          <div class="moodButtonsLabels">NOSTALGIC</div>
+        </div>
+        <div class="moodButtonsContA2"><button class="moodButton" onclick="setMoodA(4)"></button>
+          <div class="moodButtonsLabels">RELAXED</div>
+        </div>
+      </div>
+      <button disabled id="sendSong" class="inactive" onclick="sendSong();changePage('3a','4a');cleanSRC('spotifyPreviewA');cleanPage2a()">SEND</button>
 
-    <button id="goBackTo2a" onclick="changePage('3a','2a');cleanSRC('spotifyPreviewA');cleanPage2a();cleanButtons(0)">No, go back</button>
+    </div>
   </div>
 
   <div id="page4a" class="hidden">
