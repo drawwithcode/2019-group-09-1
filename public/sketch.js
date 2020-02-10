@@ -88,10 +88,10 @@ var sketchSlider2b = function(s) {
     //and able or disable the button
     if (selectorStatus == 1) {
       isButtonChooseSongAbled = 1;
-      document.getElementById("receiveSong").classList.remove("inactive")
+      document.getElementById("receiveSong").classList.remove("inactive");
     } else {
       isButtonChooseSongAbled = 0;
-      document.getElementById("receiveSong").classList.add("inactive")
+      document.getElementById("receiveSong").classList.add("inactive");
     }
 
   };
@@ -189,6 +189,7 @@ function cleanSRC(src_id) {
 function cleanPage2a() {
   for (var i = 0; i < 6; i++) {
     document.getElementsByClassName("result")[i].innerHTML = "";
+    document.getElementById('resultsContainer').classList.add("hidden");
   }
   document.getElementById("searchbar").value = "";
 }
@@ -241,6 +242,10 @@ async function search() {
     for (var i = 0; i < Object.keys(searchResults.results).length; i++) {
       document.getElementsByClassName("result")[i].classList.remove('hidden');
       document.getElementById('searchResults' + i).innerHTML = searchResults.results[i].song + ' by ' + searchResults.results[i].artist;
+    }
+
+    if(Object.keys(searchResults.results).length){
+      document.getElementById("resultsContainer").classList.add('hidden');
     }
   }
 };

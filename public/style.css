@@ -296,10 +296,23 @@ input:focus,
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
   }
 
-  #buttonHomePage2a, #placeholder2a {
+  #buttonHomePage2a {
     font-family: "HK Semibold";
     width: 40px;
     height: 40px;
+    border: none;
+    background: rgb(255, 136, 113);
+    text-align: center;
+    color: #080f24;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+  }
+
+  #placeholder2a {
+    font-family: "HK Semibold";
+    width: 40px;
     border: none;
     background: rgb(255, 136, 113);
     text-align: center;
