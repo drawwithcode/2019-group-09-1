@@ -38,8 +38,6 @@ var sketchSlider2b = function(s) {
 
     //create selector display with the five radio bars
     for (var i = 0; i < 5; i++) {
-      //the length of the bar is related to the height of the canvas,
-      var barLenght = s.height * 6;
 
       //if we are in the selected mood
       if (moodCategory == i) {
@@ -312,7 +310,7 @@ function gotData(data) {
     for (var j = 0; j < 3; j++) {
       var randID = Math.floor(random(lastKey[i]));
       var resultURI = data.val()[i][randID][0];
-      var randomFreq = Math.floor(random(100));
+      var randomFreq = Math.floor(random(10))*10;
       var tempArray2 = [];
       tempArray2.push(resultURI, randomFreq);
       tempArray.push(tempArray2);
