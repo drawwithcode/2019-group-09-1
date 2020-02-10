@@ -20,7 +20,7 @@ VIBE.TUNER is a web app with the aim of sending and receiving advice based on us
 ## Course reference and academic year
 Creative Coding 2019/2020 [(link)](https://drawwithcode.github.io/2019/) <br>
 Politecnico di Milano - Scuola del Design <br>
-Faculty: Michele Mauri, Tommaso Elli <br>
+Faculty: Michele Mauri, Tommaso Elli
 
 ## Project Idea
 
