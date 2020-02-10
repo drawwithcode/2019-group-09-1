@@ -12,10 +12,10 @@ VIBE.TUNER is a web app with the aim of sending and receiving advice based on us
 
 ## Team
 *VIBE.TUNER* was developed by:
-+ Carlotta Bacchini
-+ Stefano Ferrari
-+ Alessandro Pennacchioni
-+ Raffaele Riccardelli
++ [Carlotta Bacchini](https://github.com/carlottabacchini)
++ [Stefano Ferrari](https://github.com/Stefano-Ferrari)
++ [Alessandro Pennacchioni](https://github.com/pennacch)
++ [Raffaele Riccardelli](https://github.com/Raffo98)
 
 ## Course reference and academic year
 Creative Coding 2019/2020 [(link)](https://drawwithcode.github.io/2019/) <br>
