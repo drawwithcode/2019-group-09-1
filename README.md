@@ -3,7 +3,7 @@ VIBE.TUNER is a web app with the aim of sending and receiving advice based on us
 
 ## Table of Contents
 1. [Team](#team)
-2. [Course](#Course_reference_and_academic_year)
+2. [Course reference and academic year](#Course_reference_and_academic_year)
 3. [Project Idea](#project-idea)
 4. [Design challenges](#Design_challenges)
 5. [Code challenges](#Code_challenges)
@@ -18,9 +18,9 @@ VIBE.TUNER is a web app with the aim of sending and receiving advice based on us
 + Raffaele Riccardelli
 
 ## Course reference and academic year
-Creative Coding 2019/2020 [(link)](https://drawwithcode.github.io/2019/)
-Politecnico di Milano - Scuola del Design
-Faculty: Michele Mauri, Tommaso Elli
+Creative Coding 2019/2020 [(link)](https://drawwithcode.github.io/2019/) <br>
+Politecnico di Milano - Scuola del Design <br>
+Faculty: Michele Mauri, Tommaso Elli <br>
 
 ## Project Idea
 
@@ -32,11 +32,11 @@ Faculty: Michele Mauri, Tommaso Elli
 
 ## Credits
 *VIBE.TUNER* was designed with the following third party libraries and tools:
-+ [p5.js] (https://p5js.org/)
-+ [node.js and node modules] (https://nodejs.org/it/)
-+ [socket.IO] (https://socket.io/)
-+ [spotify Web Api] (https://developer.spotify.com/documentation/web-api/)
-+ [spotify-web-api-node] (https://github.com/thelinmichael/spotify-web-api-node)
-+ [Firebase database] (https://firebase.google.com/docs/database)
-+ [dotenv] (https://github.com/motdotla/dotenv)
-+ [Jim Knopf (Knob.js)] (https://github.com/eskimoblood/jim-knopf)
++ [p5.js](https://p5js.org/)
++ [node.js and node modules](https://nodejs.org/it/)
++ [socket.IO](https://socket.io/)
++ [spotify Web Api](https://developer.spotify.com/documentation/web-api/)
++ [spotify-web-api-node](https://github.com/thelinmichael/spotify-web-api-node)
++ [Firebase database](https://firebase.google.com/docs/database)
++ [dotenv](https://github.com/motdotla/dotenv)
++ [Jim Knopf (Knob.js)](https://github.com/eskimoblood/jim-knopf)
