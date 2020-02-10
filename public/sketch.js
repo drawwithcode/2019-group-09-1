@@ -244,7 +244,7 @@ async function search() {
       document.getElementById('searchResults' + i).innerHTML = searchResults.results[i].song + ' by ' + searchResults.results[i].artist;
     }
 
-    if(Object.keys(searchResults.results).length){
+    if(Object.keys(searchResults.results).length == 0){
       document.getElementById("resultsContainer").classList.add('hidden');
     }
   }
