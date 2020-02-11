@@ -1173,7 +1173,7 @@ input:focus,
 }
 
 /*------------------Code 07/2 ---------------------------------*/
-.result {}
+.result {overflow: hidden}
 
 .result:hover {
   background-color: antiquewhite;
