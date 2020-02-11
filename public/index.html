@@ -21,7 +21,7 @@
 
 <body>
 
-  <div id="pageIntro" class="hidden">
+  <div id="pageIntro" class="">
     <h1 id="introTitle">VIBE.TUNER</h1>
     <div id="buttonsIntroCont">
 
@@ -185,13 +185,13 @@
       <div id="sliderButton2b">
         <!--input range slider from knob.js library-->
         <input id='test' class="preset1" type="range" min="0" max="360" data-width="200" data-height="200" data-angleOffset="180" data-angleRange="360" step="3">
-        <button id="receiveSong" onclick="receiveSong()">Choose this song</button>
+        <button id="receiveSong" onclick="receiveSong()">TUNE IN</button>
       </div>
     </div>
   </div>
 
 
-  <div id="page3b" class="">
+  <div id="page3b" class="hidden">
     <div class="popUp1" id="page3bPopup">
 
       <input type="button" class="goBack" value="&times;" onclick="changePage('3b','1');cleanButtons(5);cleanSRC('spotifyPreviewB')" >

@@ -596,6 +596,8 @@ input:focus,
   #sliderButton2b{
     display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
   }
 
   #sketch2bSlider{
@@ -606,6 +608,31 @@ input:focus,
 
 
 }
+
+#receiveSong{
+    font-family: "HK Semibold";
+    text-align: center;
+    font-size: 2vw;
+    color: #ff8871;
+    color: #080f24;
+    line-height: 6vh;
+    cursor: pointer;
+    text-shadow: 1px 1px 3px rgba(8, 15, 36, 0.5);
+    border-radius: 10px;
+    background: #ff8871;
+    background: -moz-linear-gradient(#ff8871, #ffc7bd);
+    background: -ms-linear-gradient(#ff8871, #ffc7bd);
+    background: -o-linear-gradient(#ff8871, #ffc7bd);
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#ff8871), to(#ffc7bd));
+    background: -webkit-linear-gradient(#ff8871, #ffc7bd);
+    background: linear-gradient(#ff8871, #ffc7bd);
+    box-shadow:
+      inset 0 2px 3px rgba(255, 255, 255, 0.13),
+      0 5px 6px rgba(44, 55, 100, 0.3),
+      0 10px 8px 3px rgba(44, 55, 100, 0.2);
+
+    margin-right: 39px;
+  }
 
 /*-------------------------page 3b-------------------------------------*/
 #spotifyPreviewB{

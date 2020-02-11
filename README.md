@@ -17,7 +17,7 @@
 + [Raffaele Riccardelli](https://github.com/Raffo98)
 
 ## Course reference and academic year
-Creative Coding 2019/2020 [(link)](https://drawwithcode.github.io/2019/) <br>
+[Creative Coding 2019/2020](https://drawwithcode.github.io/2019/) <br>
 Politecnico di Milano - Scuola del Design <br>
 Faculty: Michele Mauri, Tommaso Elli
 
