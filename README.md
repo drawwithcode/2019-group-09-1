@@ -1,4 +1,4 @@
-![VIBETUNER](assets/readme/vibetuner.gif)
+![VIBETUNER](public/assets/readme/vibetuner.gif)
 
 ## Table of Contents
 1. [Team](#team)
@@ -113,7 +113,7 @@ The code below regolates the functioning of the song selector in the discovery s
 
     '''
 
-    ![VIBETUNER](assets/readme/Screen1.jpg)
+    ![VIBETUNER](public/assets/readme/Screen1.jpg)
 
 ## Code challenges
 In order to achieve our goal, it was necessary that the user could search the song he wanted to share inside an already filled out list. The most convenient solution that we came up with was to use an API developed by a musical streaming provider. We decided to use Spotify Web Api because of its popularity and thoroughness of songs and available endpoint. <br>
