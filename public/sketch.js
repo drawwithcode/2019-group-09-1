@@ -6,7 +6,7 @@ var lastKey = []; //array used to store the number of songs inside a moodCategor
 var moodCategory = 4; //mood category chosen by user. Its initial value is 4 by default
 var foundSongs = [];
 var canvas2bSlider;
-var scaleArray=[];
+var scaleArray = [];
 var dial; //knob to move the tuner
 var statsArray = [];
 var dictionary = [];
@@ -17,21 +17,25 @@ var choosenSongUri;
 var transmissionDegrees;
 
 function preload() {
-  for (i=0; i<10; i++) {
-    if(i<5) {
-  var scale = loadImage("assets/images/scale"+i+".png");
-  scaleArray.push(scale);}
-   else{
-     var scale= loadImage("assets/images/scaleActive"+(i-5)+".png");
-     scaleArray.push(scale);
+  for (i = 0; i < 10; i++) {
+    if (i < 5) {
+      var scale = loadImage("assets/images/scale" + i + ".png");
+      scaleArray.push(scale);
+    } else {
+      var scale = loadImage("assets/images/scaleActive" + (i - 5) + ".png");
+      scaleArray.push(scale);
+    }
   }
-}
 }
 
 var sketchSlider2b = function(s) {
 
   s.setup = function() {
-    canvas2bSlider = s.createCanvas(400, 300);
+    if (windowWidth < 500) {
+      canvas2bSlider = s.createCanvas(windowWidth / 100 * 88, windowWidth / 100 * 66);
+    } else {
+      canvas2bSlider = s.createCanvas(400, 300);
+    }
     canvas2bSlider.parent('sketch2bSlider');
   };
 
@@ -49,10 +53,10 @@ var sketchSlider2b = function(s) {
     //create selector display with the five radio bars
     for (var i = 0; i < 5; i++) {
       if (moodCategory == i) {
-        s.image(scaleArray[i+5], s.width / 2, s.height / 16 * (2 + (i * 3)), s.width, s.width/17.5 );
+        s.image(scaleArray[i + 5], s.width / 2, s.height / 16 * (2 + (i * 3)), s.width, s.width / 17.5);
 
       } else {
-        s.image(scaleArray[i], s.width / 2, s.height / 16 * (2 + (i * 3)), s.width, s.width/17.5);
+        s.image(scaleArray[i], s.width / 2, s.height / 16 * (2 + (i * 3)), s.width, s.width / 17.5);
 
       }
 

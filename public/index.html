@@ -22,8 +22,10 @@
 <body>
 
   <div id="pageIntro" class="">
-    <h1 id="introTitle">VIBE.TUNER</h1>
-    <div id="buttonsIntroCont">
+
+    <h1 class="introTitle">VIBETUNER</h1>
+     <h1 id="tapToGo" class="hidden">tap to go on</h1>
+    <div id="buttonsIntroCont"class="hidden" >
 
       <button id="start" class="buttonIntro" onclick="changePage('Intro','1')" style="height: 10vh">START</button>
       <div id="buttonsIntroCont2">
@@ -31,7 +33,7 @@
         <button id="info" class="buttonIntro" style="margin-left: 2vh" onclick="changePage('Intro','Stats')">INFO</button>
       </div>
     </div>
-
+    <div id="tapPageIntro" class="hidden" onclick="changePage('Intro','1')"> </div>
   </div>
 
   <div id="pageAbout" class="hidden">
@@ -40,31 +42,59 @@
   </div>
 
   <div id="pageStats" class="hidden">
-    <button onclick="changePage('Stats','Intro');cleanPageStats();">Go back</button>
-    <div class="statistics">
-      <p>MOOD 0</p>
-      <div id="counterMood0" class="counterCategory">
-        0
+    <div id="pageStatsCont">
+
+      <div style="align-items: center; color: #ff8871; font-size: calc(20px + 2vw); font-family: 'Bazar'; margin: 5vh 0 4vh 0;">STATISTICS</div>
+
+      <div class="statistics">
+
+        <div class="counterCategoryParent">
+          <div id="counterMood0" class="counterCategory">
+            0
+          </div>
+          <div>ROMANTIC</div>
+        </div>
+
+        <div class="counterCategoryParent">
+          <div id="counterMood1" class="counterCategory">
+            0
+          </div>
+          <div>INTENSE</div>
+        </div>
+
+        <div class="counterCategoryParent">
+          <div id="counterMood2" class="counterCategory">
+            0
+          </div>
+          <div>CHEERFUL</div>
+        </div>
+
+        <div class="counterCategoryParent">
+          <div id="counterMood3" class="counterCategory">
+            0
+          </div>
+          <div>NOSTALGIC</div>
+        </div>
+
+        <div class="counterCategoryParent">
+          <div id="counterMood4" class="counterCategory">
+            0
+          </div>
+          <div>RELAXED</div>
+        </div>
+
       </div>
 
-      <p>MOOD 1</p>
-      <div id="counterMood1" class="counterCategory">
-        0
+      <div style="margin-bottom:4vh; align-items: center; color: #ff8871; font-size: calc(10px + 1.5vw); font-family: 'Bazar';">- TOP 3 MOST SHARED SONGS -</div>
+
+      <div>
+        <iframe id="favouriteSong1" class="favSong" src="https://open.spotify.com/embed?uri=spotify:track:50rO1T1hHJD70uRjX1uthz" width="250" height="250" frameborder="0" allowtransparency="true"></iframe>
+        <iframe id="favouriteSong2" class="favSong" src="https://open.spotify.com/embed?uri=spotify:track:50rO1T1hHJD70uRjX1uthz" width="250" height="250" frameborder="0" allowtransparency="true"></iframe>
+        <iframe id="favouriteSong3" class="favSong" src="https://open.spotify.com/embed?uri=spotify:track:50rO1T1hHJD70uRjX1uthz" width="250" height="250" frameborder="0" allowtransparency="true"></iframe>
       </div>
 
-      <p>MOOD 2</p>
-      <div id="counterMood2" class="counterCategory">
-        0
-      </div>
-
-      <p>MOOD 3</p>
-      <div id="counterMood3" class="counterCategory">
-        0
-      </div>
-
-      <p>MOOD 4</p>
-      <div id="counterMood4" class="counterCategory">
-        0
+      <div>
+        <button id="goBackFromStats" onclick="changePage('Stats','Intro');cleanPageStats();">GO BACK</button>
       </div>
     </div>
   </div>
@@ -72,7 +102,7 @@
 
 
   <div id="page1" class="hidden">
-    <h1 id="introTitle">VIBE.TUNER</h1>
+    <h1 class="introTitle">VIBETUNER</h1>
     <div id="buttons1Cont">
       <button id="send" class="buttonPage1" onclick="changePage('1','2a')">SEND</button>
       <button id="receive" class="buttonPage1" onclick="changePage('1','2b'); retrieveSongs()">RECEIVE</button>
@@ -94,7 +124,7 @@
     <div style="display: flex ; flex-direction:column">
 
       <div id="searchBarHomeButton">
-        <button id="buttonHomePage2a" onclick="changePage('2a','1');cleanPage2a();"> H </button>
+        <input type="button" value="&#8962;"id="buttonHomePage2a" onclick="changePage('2a','1');cleanPage2a();"></button>
         <input type="text" id="searchbar" onkeyup="search()" placeholder="Search a song...">
       </div>
 
@@ -119,9 +149,9 @@
       <input type="button" class="goBack" value="&times;" onclick="changePage('3a','2a');cleanSRC('spotifyPreviewA');cleanPage2a();cleanButtons(0)">
       <div id="page3a_title">WOULD YOU LIKE TO SUGGEST THIS SONG?</div>
 
-      <iframe id="spotifyPreviewA" class="spotifyPreview1" src="https://open.spotify.com/embed?uri=spotify:track:50rO1T1hHJD70uRjX1uthz" width="250" height="800" frameborder="0" allowtransparency="true"></iframe>
+      <iframe id="spotifyPreviewA" class="spotifyPreview1" src="" width="250" height="800" frameborder="0" allowtransparency="true"></iframe>
 
-      <div id="page3a_subtitle">CHOOSE A MOOD FOR THIS SONG</div>
+      <div id="page3a_subtitle">EXPRESS YOUR MOOD</div>
 
       <div id="moodButtonsContA">
         <div class="moodButtonsContA2"><button class="moodButton" onclick="setMoodA(0)"></button>
@@ -140,7 +170,7 @@
           <div class="moodButtonsLabels">RELAXED</div>
         </div>
       </div>
-      <button disabled id="sendSong" class="inactive buttonStyle1" onclick="sendSong();changePage('3a','4a');cleanSRC('spotifyPreviewA');cleanPage2a()">SEND</button>
+      <button disabled id="sendSong" class="inactive buttonStyle1" onclick="sendSong();changePage('3a','4a');cleanSRC('spotifyPreviewA');cleanPage2a()">SHARE</button>
 
     </div>
   </div>
@@ -148,7 +178,7 @@
   <div id="page4a" class="hidden">
     <div class="popUp1" id="popUpPage4a">
       <div class="title1" id="titlePage4a">SONG TRANSMITTED SUCCESFULLY</div>
-      <button onclick="changePage('4a','1')" class="buttonStyle1 ">GO BACK</button>
+      <button onclick="changePage('4a','Intro')" class="buttonStyle1 ">GO BACK</button>
     </div>
   </div>
 
@@ -198,7 +228,7 @@
       <div id="page3b_title" class="title1">SOMEONE SUGGESTED THIS SONG:</div>
 
 
-        <iframe id="spotifyPreviewB" class="spotifyPreview1" src="https://open.spotify.com/embed?uri=spotify:track:50rO1T1hHJD70uRjX1uthz" width="250" height="800" frameborder="0" allowtransparency="true"></iframe>
+        <iframe id="spotifyPreviewB" class="spotifyPreview1" src="" width="250" height="800" frameborder="0" allowtransparency="true"></iframe>
 
     </div>
   </div>
