@@ -478,5 +478,9 @@ function stopStatic() {
   static.stop();
 }
 
+function touchMoved(){
+  return false;
+}
+
 
 var p5Slider2b = new p5(sketchSlider2b);
