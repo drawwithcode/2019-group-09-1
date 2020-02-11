@@ -42,10 +42,10 @@
     <h1 id="tapToGo" class="hidden">tap to go on</h1>
     <div id="buttonsIntroCont" class="hidden">
 
-      <button id="start" class="buttonIntro" onclick="changePage('Intro','1')" style="height: 10vh">START</button>
+      <button id="start" class="buttonIntro" onclick="changePage('Intro','1')" style="height: 10vh"><span>START</span></button>
       <div id="buttonsIntroCont2">
-        <button id="about" class="buttonIntro" style="margin-right: 2vh" onclick="changePage('Intro','About')">ABOUT</button>
-        <button id="info" class="buttonIntro" style="margin-left: 2vh" onclick="changePage('Intro','Stats')">INFO</button>
+        <button id="about" class="buttonIntro" style="margin-right: 2vh" onclick="changePage('Intro','About')"><span>ABOUT</span></button>
+        <button id="info" class="buttonIntro" style="margin-left: 2vh" onclick="changePage('Intro','Stats'); loadStats()"><span>INFO</span></button>
       </div>
     </div>
     <div id="tapPageIntro" class="hidden" onclick="changePage('Intro','1')"> </div>
