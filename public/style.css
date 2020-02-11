@@ -24,24 +24,13 @@ body {
   /* Non-prefixed version, currently
                               supported by Chrome, Opera and Firefox */
 }
-
-canvas {
-  border-radius: 10px;
-}
+canvas {border-radius: 10px;}
 
 a:focus,
 button:focus,
 input:focus,
 :focus {
   outline: none;
-}
-
-span {
-  position: absolute;
-  width: calc(100% - 10px);
-  text-align: center;
-  box-sizing: border-box;
-  top: calc(50% - 12px);
 }
 
 /*--------------------------------------------------------------*/
@@ -237,10 +226,49 @@ span {
   animation-name: vquiet;
 }
 
+#pageAbout {
+  font-family: 'HK Regular';
+  font-size: 24px;
+  color: #c9d1ea;
+  margin-left: 30vw;
+  margin-top: 10vw;
+  width: 40vw;
+}
+
+#wrapAbout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#aboutText {
+  margin-top: -2vw;
+}
+
+#btnContainerIntro {
+  display: flex;
+  align-items: center;
+}
+
+#pageAboutBtn {
+  margin-top: 10vh;
+}
+
+#aboutTitle {
+  font-family: 'Bazar';
+  font-size: 4vw;
+  color: #ff8871;
+  text-align: center;
+  margin-bottom: 7vw;
+}
+
 @media only screen and (min-width: 500px) {
-  #tapPageIntro {
-    display: none
-  }
+
+
+
+ #tapPageIntro {
+   display: none
+ }
 
   .IntroTitle {
     text-align: center;
@@ -279,12 +307,11 @@ span {
     height: 6vh;
     font-family: "HK Semibold";
     text-align: center;
-    box-sizing: border-box;
+    font-size: 26px;
+    color: #ff8871;
     cursor: pointer;
-    padding: 5px;
     margin-bottom: 4vh;
     text-shadow: 1px 1px 3px rgba(8, 15, 36, 0.5);
-    border-width: 0px;
     border-radius: 10px;
     background: #ff8871;
     background: -moz-linear-gradient(#ff8871, #ffc7bd);
@@ -297,30 +324,11 @@ span {
     color: #080f24;
     font-size: 20px;
     text-align: center;
+    line-height: 6vh;
     box-shadow:
       inset 0 2px 3px rgba(255, 255, 255, 0.13),
       0 5px 6px rgba(44, 55, 100, 0.3),
       0 10px 8px 3px rgba(44, 55, 100, 0.2);
-  }
-
-  .buttonIntro:after {
-    width: 100%;
-    height: 100%;
-    content: "";
-    display: inline-block;
-    box-sizing: border-box;
-    cursor: pointer;
-    margin-bottom: 4vh;
-    text-shadow: 1px 1px 3px rgba(8, 15, 36, 0.5);
-    border-width: 0px;
-    border-radius: 10px;
-    background: #ff8871;
-    background: -moz-linear-gradient(#ffc7bd, #ff8871);
-    background: -ms-linear-gradient(#ffc7bd, #ff8871);
-    background: -o-linear-gradient(#ffc7bd, #ff8871);
-    background: -webkit-gradient(linear, 0 0, 0 100%, from(#ffc7bd), to(#ff8871));
-    background: -webkit-linear-gradient(#ffc7bd, #ff8871);
-    background: linear-gradient(#ffc7bd, #ff8871);
   }
 
   .buttonPage1 {
@@ -353,54 +361,58 @@ span {
     justify-content: space-evenly;
     width: 70vw;
     margin: auto;
+
   }
+
 
   /*-------------------Statistics  ---------------------------------*/
-  #pageStatsCont {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    height: 90vh;
-    justify-content: space-between;
-  }
+    #pageStatsCont {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      height: 90vh;
+      justify-content: space-between;
+    }
 
-  .statistics {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    color: #ff8871;
-    font-size: calc(8px + 1vw);
-    font-family: "Bazar";
-    margin-bottom: 8vh;
-  }
+    .statistics {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+      color: #ff8871;
+      font-size: calc(8px + 1vw);
+      font-family: "Bazar";
+      margin-bottom: 8vh;
+    }
 
-  .counterCategoryParent {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+    .counterCategoryParent {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-  .counterCategory {
-    font-size: calc(18px + 6vw);
-    font-family: "HK Semibold";
-    color: #c9d1ea;
-  }
+    .counterCategory {
+      font-size: calc(18px + 6vw);
+      font-family: "HK Semibold";
+      color: #c9d1ea;
+    }
 
-  #goBackFromStats {
-    position: absolute;
-    margin-top: 20px;
-    margin-right: 60px;
-    padding-right: 60px;
-  }
+    #goBackFromStats {
+      position: absolute;
+      margin-top: 20px;
+      margin-right: 60px;
+      padding-right: 60px;
 
-  .favSong {
-    margin: 0 2vw 2vw 2vw;
-    width: 20vw;
-    height: 35vh;
-  }
+    }
+
+    .favSong {
+      margin: 0 2vw 2vw 2vw;
+      width: 20vw;
+      height: 35vh;
+    }
+
 
   /*--------------------------------------------------------------*/
   /*------------------ section A ---------------------------------*/
@@ -505,6 +517,7 @@ span {
     min-width: 480px;
     margin: auto;
     margin-top: 5vh;
+
     margin-bottom: 5vh;
     display: flex;
     flex-direction: column;
@@ -533,6 +546,7 @@ span {
     text-align: center;
     color: #ff8871;
   }
+
 
   .moodButtonsLabels {
     width: 5vw;
@@ -631,38 +645,6 @@ span {
     border-color: #ff8871;
   }
 
-  .moodButton:before {
-    content: "";
-    display: inline-block;
-    border-radius: 50%;
-    background-color: #2c3764;
-    width: 6vw;
-    min-width: 70px;
-    height: 6vw;
-    min-height: 70px;
-    transform: translate(-23px, -23px);
-    position: absolute;
-    z-index: -1;
-    box-shadow: inset 0 1px 0 rgba(77, 88, 133, 1),
-      0 1px 2px rgba(44, 55, 100, 1),
-      0 0 10px rgba(44, 55, 100, 1);
-  }
-
-  .moodButton.buttonDown:before {
-    content: "";
-    display: inline-block;
-    border-radius: 50%;
-    background-color: #2c3764;
-    width: 6vw;
-    min-width: 70px;
-    height: 6vw;
-    min-height: 70px;
-    transform: translate(-23px, -23px);
-    position: absolute;
-    z-index: -1;
-    box-shadow: inset 0 10px 10px rgba(77, 88, 133, 1)
-  }
-
   .moodButton {
     width: 5vw;
     min-width: 60px;
@@ -680,29 +662,6 @@ span {
       inset 0 2px 3px rgba(255, 255, 255, 0.13),
       0 5px 8px rgba(0, 0, 0, 0.3),
       0 10px 10px 4px rgba(0, 0, 0, 0.3);
-    border-width: 0px;
-    padding: 0px;
-  }
-
-  .moodButton:after {
-    content: "";
-    display: inline-block;
-    border-radius: 50%;
-    width: 40%;
-    height: 40%;
-    background-color: #2c3764;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  }
-
-  .moodButton.buttonDown:after {
-    content: "";
-    display: inline-block;
-    border-radius: 50%;
-    width: 40%;
-    height: 40%;
-    background-color: #ff8871;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-    filter: blur(1px);
   }
 
   #moodButtonsContA {
@@ -738,20 +697,23 @@ span {
     font-size: 24px;
   }
 
+
+
+
+
   /*-------------for page 1 less then 800px-----------------------*/
   @media only screen and (max-width: 800px) {
     .IntroTitle {
       font-size: 100px;
     }
-
-    .buttonPage1 {
-      margin-top: 100px;
-    }
+    .buttonPage1 {margin-top: 100px; }
   }
 
   /*--------------------------------------------------------------*/
   /*------------------ section B ---------------------------------*/
   /*--------------------------------------------------------------*/
+
+
   /*-------------------------page 2b-------------------------------------*/
   #moodButtonsContB {
     display: flex;
@@ -775,7 +737,7 @@ span {
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   }
 
-  #page2bCont {
+  #page2bCont{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -784,432 +746,399 @@ span {
     margin-top: 5vh;
   }
 
-  #sliderButton2b {
+  #sliderButton2b{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
   }
 
-  #sketch2bSlider {
-    border-radius: 10px;
-    border: 3px solid #ff8871;
-    background-color: #2c3764;
-    width: 400px;
-    height: 300px;
-  }
+  #sketch2bSlider{
+      border-radius: 10px;
+      border: 3px solid #ff8871;
+      background-color: #2c3764;
+      width: 400px;
+      height: 300px;
+    }
 
-  /*-------------------------page 2b-------------------------------------*/
-  #receiveSong {
-    font-family: "HK Semibold";
-    text-align: center;
-    font-size: 2vw;
-    color: #ff8871;
-    color: #080f24;
-    line-height: 6vh;
-    cursor: pointer;
-    text-shadow: 1px 1px 3px rgba(8, 15, 36, 0.5);
-    border-radius: 10px;
-    background: #ff8871;
-    background: -moz-linear-gradient(#ff8871, #ffc7bd);
-    background: -ms-linear-gradient(#ff8871, #ffc7bd);
-    background: -o-linear-gradient(#ff8871, #ffc7bd);
-    background: -webkit-gradient(linear, 0 0, 0 100%, from(#ff8871), to(#ffc7bd));
-    background: -webkit-linear-gradient(#ff8871, #ffc7bd);
-    background: linear-gradient(#ff8871, #ffc7bd);
-    box-shadow:
-      inset 0 2px 3px rgba(255, 255, 255, 0.13),
-      0 5px 6px rgba(44, 55, 100, 0.3),
-      0 10px 8px 3px rgba(44, 55, 100, 0.2);
-    margin-right: 39px;
-  }
 
-  /*-------------------------page 3b-------------------------------------*/
-  #spotifyPreviewB {
-    height: 360px;
-    margin-bottom: 3vw;
-  }
+    /*-------------------------page 2b-------------------------------------*/
 
-  #page3bPopup {
-    justify-content: space-between;
-  }
 
-  #page3b_title {
-    margin-top: 1vw;
-    margin-bottom: 3vw;
-  }
+    #receiveSong{
+        font-family: "HK Semibold";
+        text-align: center;
+        font-size: 2vw;
+        color: #ff8871;
+        color: #080f24;
+        line-height: 6vh;
+        cursor: pointer;
+        text-shadow: 1px 1px 3px rgba(8, 15, 36, 0.5);
+        border-radius: 10px;
+        background: #ff8871;
+        background: -moz-linear-gradient(#ff8871, #ffc7bd);
+        background: -ms-linear-gradient(#ff8871, #ffc7bd);
+        background: -o-linear-gradient(#ff8871, #ffc7bd);
+        background: -webkit-gradient(linear, 0 0, 0 100%, from(#ff8871), to(#ffc7bd));
+        background: -webkit-linear-gradient(#ff8871, #ffc7bd);
+        background: linear-gradient(#ff8871, #ffc7bd);
+        box-shadow:
+          inset 0 2px 3px rgba(255, 255, 255, 0.13),
+          0 5px 6px rgba(44, 55, 100, 0.3),
+          0 10px 8px 3px rgba(44, 55, 100, 0.2);
+
+        margin-right: 39px;
+      }
+
+    /*-------------------------page 3b-------------------------------------*/
+    #spotifyPreviewB{
+      height: 360px;
+      margin-bottom: 3vw;
+    }
+    #page3bPopup{
+      justify-content: space-between;
+
+    }
+    #page3b_title{
+      margin-top: 1vw;
+      margin-bottom: 3vw;
+    }
 }
+
+
+
+
+
 
 /*------------------------for smartphone--------------------------*/
 @media only screen and (max-width: 499px) {
 
-  /*----------------page intro----------------------------*/
-  .IntroTitle {
-    text-align: center;
-    font-family: "Bazar";
-    color: #ff8871;
-    margin-top: 40vh;
-    font-size: 13vw;
-    text-shadow: 2px 2px 10px rgb(8, 15, 36);
-    margin-bottom: 5vw;
-  }
 
-  #tapToGo {
-    display: block;
-    text-align: center;
-    color: #c9d1ea;
-    font-size: 18px;
-    text-shadow: 2px 2px 10px rgb(8, 15, 36);
-    font-family: "HK Regular";
-    animation-name: easeIn0;
-    animation-duration: 1.75s;
-    animation-iteration-count: infinite;
-  }
+/*----------------page intro----------------------------*/
+    .IntroTitle {
+      text-align: center;
+      font-family: "Bazar";
+      color: #ff8871;
+      margin-top: 40vh;
+      font-size: 13vw;
+      text-shadow: 2px 2px 10px rgb(8, 15, 36);
+      margin-bottom: 5vw;
+    }
 
-  #tapPageIntro {
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
+    #tapToGo {
+      display: block;
+      text-align: center;
+      color:#c9d1ea;
+      font-size: 18px;
+      text-shadow: 2px 2px 10px rgb(8, 15, 36);
+      font-family: "HK Regular";
+      animation-name: easeIn0;
+      animation-duration: 1.75s;
+      animation-iteration-count: infinite;
+    }
 
-  /*----------------page 1-----------------------------*/
-  .buttonPage1 {
-    height: 15vw;
-    width: 15vw;
-    min-height: 100px;
-    min-width: 100px;
-    border-radius: 50%;
-    background: #2c3764;
-    background: -moz-linear-gradient(#cad1e8, #8491bf);
-    background: -ms-linear-gradient(#cad1e8, #8491bf);
-    background: -o-linear-gradient(#cad1e8, #8491bf);
-    background: -webkit-gradient(linear, 0 0, 0 100%, from(#cad1e8), to(#8491bf));
-    background: -webkit-linear-gradient(#cad1e8, #8491bf);
-    background: linear-gradient(#cad1e8, #8491bf);
-    color: #080f24;
-    font-size: 16px;
-    text-align: center;
-    font-family: "HK Semibold";
-    text-shadow: 0 2px 1px rgba(0, 0, 0, 0.1);
-    box-shadow:
-      inset 0 2px 3px rgba(255, 255, 255, 0.13),
-      0 5px 8px rgba(0, 0, 0, 0.3),
-      0 10px 10px 4px rgba(0, 0, 0, 0.3);
-  }
+    #tapPageIntro {
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
 
-  #buttons1Cont {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    width: 70vw;
-    margin: auto;
-    margin-top: 5vh;
-  }
+/*----------------page 1-----------------------------*/
 
-  /*----------------page 2a-----------------------------*/
-  #page2aTitle {
-    font-family: "Bazar";
-    font-size: 30px;
-    text-align: center;
-    margin-top: 10vh;
-    color: #ff8871;
-  }
+    .buttonPage1 {
+      height: 15vw;
+      width: 15vw;
+      min-height: 100px;
+      min-width: 100px;
+      border-radius: 50%;
+      background: #2c3764;
+      background: -moz-linear-gradient(#cad1e8, #8491bf);
+      background: -ms-linear-gradient(#cad1e8, #8491bf);
+      background: -o-linear-gradient(#cad1e8, #8491bf);
+      background: -webkit-gradient(linear, 0 0, 0 100%, from(#cad1e8), to(#8491bf));
+      background: -webkit-linear-gradient(#cad1e8, #8491bf);
+      background: linear-gradient(#cad1e8, #8491bf);
+      color: #080f24;
+      font-size: 16px;
+      text-align: center;
+      font-family: "HK Semibold";
+      text-shadow: 0 2px 1px rgba(0, 0, 0, 0.1);
+      box-shadow:
+        inset 0 2px 3px rgba(255, 255, 255, 0.13),
+        0 5px 8px rgba(0, 0, 0, 0.3),
+        0 10px 10px 4px rgba(0, 0, 0, 0.3);
+    }
+    #buttons1Cont {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      width: 70vw;
+      margin: auto;
+      margin-top: 5vh;
+    }
 
-  #searchBarHomeButton {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 7vh;
-  }
 
-  #resultsContainerParent {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: -4px;
-  }
+/*----------------page 2a-----------------------------*/
 
-  #searchbar {
-    margin-left: 10px;
-    width: 70vw;
-    max-width: 700px;
-    border: 3px solid #ff8871;
-    padding: 7px;
-    height: 40px;
-    border-radius: 5px;
-    outline: none;
-    font-size: 15px;
-    background: rgb(211, 216, 232);
-    background: linear-gradient(0deg, rgba(211, 216, 232, 1) 0%, rgba(153, 169, 222, 1) 100%);
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
-  }
+#page2aTitle {
+  font-family: "Bazar";
+  font-size: 30px;
+  text-align: center;
+  margin-top: 10vh;
+  color: #ff8871;
+}
 
-  #buttonHomePage2a {
-    font-family: "HK Semibold";
-    width: 40px;
-    height: 40px;
-    border: none;
-    background: rgb(255, 136, 113);
-    text-align: center;
-    color: #080f24;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 15px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
-  }
+#searchBarHomeButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 7vh;
+}
 
-  #placeholder2a {
-    font-family: "HK Semibold";
-    width: 40px;
-    border: none;
-    background: rgb(255, 136, 113);
-    text-align: center;
-    color: #080f24;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 15px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
-  }
+#resultsContainerParent {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: -4px;
+}
 
-  #resultsContainer {
-    width: 70vw;
-    max-width: 700px;
-    margin-left: 10px;
-    border-style: solid;
-    border-color: #ff8871;
-    border-width: 0px 3px 3px 3px;
-    border-radius: 0px 0px 5px 5px;
-    outline: none;
-    font-size: 15px;
-    background: rgb(211, 216, 232);
-    background: linear-gradient(0deg, rgba(211, 216, 232, 1) 0%, rgba(153, 169, 222, 1) 100%);
-    box-sizing: border-box;
-  }
+#searchbar {
+  margin-left: 10px;
+  width: 70vw;
+  max-width: 700px;
+  border: 3px solid #ff8871;
+  padding: 7px;
+  height: 40px;
+  border-radius: 5px;
+  outline: none;
+  font-size: 15px;
+  background: rgb(211, 216, 232);
+  background: linear-gradient(0deg, rgba(211, 216, 232, 1) 0%, rgba(153, 169, 222, 1) 100%);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+}
 
-  .result {
-    font-family: 'HK Regular';
-    height: 20px;
-    padding-top: 7px;
-    padding-left: 10px;
-    background: linear-gradient(0deg, rgba(211, 216, 232, 1) 0%, rgba(153, 169, 222, 1) 100%);
-  }
+#buttonHomePage2a {
+  font-family: "HK Semibold";
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: rgb(255, 136, 113);
+  text-align: center;
+  color: #080f24;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+}
 
-  /*----------------page 3a-----------------------------*/
-  .popUp1 {
-    background: rgb(15, 26, 64);
-    background: radial-gradient(circle, rgba(15, 26, 64, 1) 0%, rgba(3, 6, 15, 1) 100%);
-    border-radius: 20px;
-    border-style: solid;
-    border-width: 2px;
-    border-color: #ff8871;
-    margin: 3vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+#placeholder2a {
+  font-family: "HK Semibold";
+  width: 40px;
+  border: none;
+  background: rgb(255, 136, 113);
+  text-align: center;
+  color: #080f24;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+}
 
-  .title1 {
-    font-family: "Bazar";
-    font-size: 24px;
-    text-align: center;
-    color: #ff8871;
-  }
+#resultsContainer {
+  width: 70vw;
+  max-width: 700px;
+  margin-left: 10px;
+  border-style: solid;
+  border-color: #ff8871;
+  border-width: 0px 3px 3px 3px;
+  border-radius: 0px 0px 5px 5px;
+  outline: none;
+  font-size: 15px;
+  background: rgb(211, 216, 232);
+  background: linear-gradient(0deg, rgba(211, 216, 232, 1) 0%, rgba(153, 169, 222, 1) 100%);
+  box-sizing: border-box;
+}
 
-  #page3a_subtitle {
-    font-family: "Bazar";
-    font-size: 18px;
-    text-align: center;
-    color: #ff8871;
-    margin-bottom: 3vh;
-    margin-top: 3vh;
-  }
+.result {
+  font-family: 'HK Regular';
+  height: 20px;
+  padding-top: 7px;
+  padding-left: 10px;
+  background: linear-gradient(0deg, rgba(211, 216, 232, 1) 0%, rgba(153, 169, 222, 1) 100%);
+}
 
-  #page3a_title {
-    font-family: "Bazar";
-    font-size: 18px;
-    text-align: center;
-    color: #ff8871;
-    margin-bottom: 3vh;
-  }
+/*----------------page 3a-----------------------------*/
 
-  .moodButtonsLabels {
-    width: 100%;
-    overflow: visible;
-    text-align: center;
-    line-height: 30px;
-  }
+.popUp1 {
+  background: rgb(15, 26, 64);
+  background: radial-gradient(circle, rgba(15, 26, 64, 1) 0%, rgba(3, 6, 15, 1) 100%);
+  border-radius: 20px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #ff8871;
+  margin:3vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-  .goBack {
-    background: transparent;
-    color: #ff8871;
-    border-style: none;
-    cursor: pointer;
-    outline: none;
-    font-size: 28px;
-    width: 100%;
-    text-align: right;
-    padding-right: 10px;
-  }
+.title1 {
+  font-family: "Bazar";
+  font-size: 24px;
+  text-align: center;
+  color: #ff8871;
+}
 
-  #spotifyPreviewA {
-    height: 40vh;
-  }
+#page3a_subtitle {
+  font-family: "Bazar";
+  font-size: 18px;
+  text-align: center;
+  color: #ff8871;
+  margin-bottom: 3vh;
+  margin-top:3vh;
+}
 
-  .buttonStyle1 {
-    width: 55%;
-    height: 6vh;
-    font-family: "HK Semibold";
-    text-align: center;
-    font-size: 26px;
-    color: #ff8871;
-    cursor: pointer;
-    margin: 2vh 0 3vh 0;
-    text-shadow: 1px 1px 3px rgba(8, 15, 36, 0.5);
-    border-radius: 10px;
-    background: #ff8871;
-    background: -moz-linear-gradient(#ff8871, #ffc7bd);
-    background: -ms-linear-gradient(#ff8871, #ffc7bd);
-    background: -o-linear-gradient(#ff8871, #ffc7bd);
-    background: -webkit-gradient(linear, 0 0, 0 100%, from(#ff8871), to(#ffc7bd));
-    background: -webkit-linear-gradient(#ff8871, #ffc7bd);
-    background: linear-gradient(#ff8871, #ffc7bd);
-    position: relative;
-    color: #080f24;
-    font-size: 20px;
-    text-align: center;
-    line-height: 6vh;
-    box-shadow:
-      inset 0 2px 3px rgba(255, 255, 255, 0.13),
-      0 5px 6px rgba(44, 55, 100, 0.3),
-      0 10px 8px 3px rgba(44, 55, 100, 0.2);
-  }
+#page3a_title {
+  font-family: "Bazar";
+  font-size: 18px;
+  text-align: center;
+  color: #ff8871;
+  margin-bottom: 3vh;
+}
 
-  .moodButton:before {
-    content: "";
-    display: inline-block;
-    border-radius: 50%;
-    background-color: #2c3764;
-    width: 12vw;
-    height: 12vw;
-    transform: translate(-4vw, -4vw);
-    position: absolute;
-    z-index: -1;
-    box-shadow: inset 0 1px 0 rgba(77, 88, 133, 1),
-      0 1px 2px rgba(44, 55, 100, 1),
-      0 0 10px rgba(44, 55, 100, 1);
-  }
 
-  .moodButton.buttonDown:before {
-    content: "";
-    display: inline-block;
-    border-radius: 50%;
-    background-color: #2c3764;
-    width: 12vw;
-    height: 12vw;
-    transform: translate(-4vw, -4vw);
-    position: absolute;
-    z-index: -1;
-    box-shadow: inset 0 10px 10px rgba(77, 88, 133, 1)
-  }
+.moodButtonsLabels {
+  width: 100%;
+  overflow: visible;
+  text-align: center;
 
-  .moodButton {
-    width: 10vw;
-    height: 10vw;
-    border-radius: 50%;
-    background: #2c3764;
-    background: -moz-linear-gradient(#cad1e8, #8491bf);
-    background: -ms-linear-gradient(#cad1e8, #8491bf);
-    background: -o-linear-gradient(#cad1e8, #8491bf);
-    background: -webkit-gradient(linear, 0 0, 0 100%, from(#cad1e8), to(#8491bf));
-    background: -webkit-linear-gradient(#cad1e8, #8491bf);
-    background: linear-gradient(#cad1e8, #8491bf);
-    box-shadow:
-      inset 0 2px 3px rgba(255, 255, 255, 0.13),
-      0 5px 8px rgba(0, 0, 0, 0.3),
-      0 10px 10px 4px rgba(0, 0, 0, 0.3);
-    border-width: 0px;
-    padding: 0px;
-  }
+  line-height: 30px;
+}
 
-  .moodButton:after {
-    content: "";
-    display: inline-block;
-    border-radius: 50%;
-    width: 40%;
-    height: 40%;
-    background-color: #2c3764;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  }
+.goBack {
+  background: transparent;
+  color: #ff8871;
+  border-style: none;
+  cursor: pointer;
+  outline: none;
+  font-size: 28px;
+  width: 100%;
+  text-align: right;
+  padding-right: 10px;
+}
 
-  .moodButton.buttonDown:after {
-    content: "";
-    display: inline-block;
-    border-radius: 50%;
-    width: 40%;
-    height: 40%;
-    background-color: #ff8871;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-    filter: blur(1px);
-  }
+#spotifyPreviewA {
+  height: 40vh;
+}
 
-  #moodButtonsContA {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    width: 30vw;
-    min-width: 360px;
-    margin: 1vw 2vw 2vw 2vw
-  }
+.buttonStyle1 {
+  width: 55%;
+  height: 6vh;
+  font-family: "HK Semibold";
+  text-align: center;
+  font-size: 26px;
+  color: #ff8871;
+  cursor: pointer;
+  margin: 2vh 0 3vh 0;
+  text-shadow: 1px 1px 3px rgba(8, 15, 36, 0.5);
+  border-radius: 10px;
+  background: #ff8871;
+  background: -moz-linear-gradient(#ff8871, #ffc7bd);
+  background: -ms-linear-gradient(#ff8871, #ffc7bd);
+  background: -o-linear-gradient(#ff8871, #ffc7bd);
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#ff8871), to(#ffc7bd));
+  background: -webkit-linear-gradient(#ff8871, #ffc7bd);
+  background: linear-gradient(#ff8871, #ffc7bd);
+  position: relative;
+  color: #080f24;
+  font-size: 20px;
+  text-align: center;
+  line-height: 6vh;
+  box-shadow:
+    inset 0 2px 3px rgba(255, 255, 255, 0.13),
+    0 5px 6px rgba(44, 55, 100, 0.3),
+    0 10px 8px 3px rgba(44, 55, 100, 0.2);
+}
 
-  .moodButtonsContA2 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: 'HK Regular';
-    color: #c9d1ea;
-    font-size: 8px;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  }
+.moodButton {
+  width: 10vw;
 
-  /*-------------------------page 4a-------------------------------------*/
-  #titlePage4a {
-    padding-top: 4vh;
-    padding-bottom: 3vh;
-  }
+  height: 10vw;
 
-  /*-------------------------page 2b-----------------------------------*/
-  .moodButtonsContB2 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: 'HK Regular';
-    color: #c9d1ea;
-    font-size: 8px;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  }
+  border-radius: 50%;
+  background: #2c3764;
+  background: -moz-linear-gradient(#cad1e8, #8491bf);
+  background: -ms-linear-gradient(#cad1e8, #8491bf);
+  background: -o-linear-gradient(#cad1e8, #8491bf);
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#cad1e8), to(#8491bf));
+  background: -webkit-linear-gradient(#cad1e8, #8491bf);
+  background: linear-gradient(#cad1e8, #8491bf);
+  box-shadow:
+    inset 0 2px 3px rgba(255, 255, 255, 0.13),
+    0 5px 8px rgba(0, 0, 0, 0.3),
+    0 10px 10px 4px rgba(0, 0, 0, 0.3);
+}
 
-  #moodButtonsContB {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 80vw;
-    margin: 10vw 0 4vw 0;
-  }
+#moodButtonsContA {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 
-  #sliderButton2b {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-  }
+  width: 30vw;
+  min-width: 360px;
+  margin: 1vw 2vw 2vw 2vw
+}
 
-  #receiveSong {
+.moodButtonsContA2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'HK Regular';
+  color: #c9d1ea;
+  font-size: 8px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/*-------------------------page 4a-------------------------------------*/
+
+#titlePage4a{
+  padding-top: 4vh;
+  padding-bottom: 3vh;
+}
+
+/*-------------------------page 2b-----------------------------------*/
+.moodButtonsContB2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'HK Regular';
+  color: #c9d1ea;
+  font-size: 8px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+#moodButtonsContB {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 80vw;
+  margin: 10vw 0 4vw 0;
+}
+
+#sliderButton2b{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#receiveSong{
     font-family: "HK Semibold";
     text-align: center;
     font-size: 14px;
@@ -1230,12 +1159,17 @@ span {
       inset 0 2px 3px rgba(255, 255, 255, 0.13),
       0 5px 6px rgba(44, 55, 100, 0.3),
       0 10px 8px 3px rgba(44, 55, 100, 0.2);
-    width: 30vw;
-    height: 18vw;
-    margin-right: 39.5px;
+
+   width: 30vw;
+   height: 18vw;
+   margin-right: 39.5px;
+
+
   }
 
-  #sketch2bSlider {
+
+
+#sketch2bSlider{
     width: 88vw;
     height: 66vw;
     border: 3px solid #ff8871;
@@ -1243,7 +1177,7 @@ span {
     border-radius: 10px;
   }
 
-  #page2bCont {
+  #page2bCont{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -1252,63 +1186,27 @@ span {
     margin: 5vh;
   }
 
-  /*------------------page 3b--------------------------*/
-  /*-------------------------page 3b-------------------------------------*/
-  #spotifyPreviewB {
-    height: 360px;
-    margin-bottom: 3vh;
-  }
+/*------------------page 3b--------------------------*/
 
-  #page3bPopup {
-    justify-content: space-between;
-  }
+/*-------------------------page 3b-------------------------------------*/
+#spotifyPreviewB{
+  height: 360px;
+  margin-bottom: 3vh;
+}
+#page3bPopup{
+  justify-content: space-between;
 
-  #page3b_title {
-    margin-top: 3vh;
-    margin-bottom: 4vh;
-    font-size: 18px;
-  }
+}
+#page3b_title{
+  margin-top: 3vh;
+  margin-bottom: 4vh;
+  font-size: 18px;
 }
 
-@media only screen and (min-width: 1201px) {
-
-  .moodButton:before {
-    content: "";
-    display: inline-block;
-    border-radius: 50%;
-    background-color: #2c3764;
-    width: 6vw;
-    min-width: 70px;
-    height: 6vw;
-    min-height: 70px;
-    transform: translate(-2vw, -2vw);
-    position: absolute;
-    z-index: -1;
-    box-shadow: inset 0 1px 0 rgba(77, 88, 133, 1),
-      0 1px 2px rgba(44, 55, 100, 1),
-      0 0 10px rgba(44, 55, 100, 1);
-  }
-
-  .moodButton.buttonDown:before {
-    content: "";
-    display: inline-block;
-    border-radius: 50%;
-    background-color: #2c3764;
-    width: 6vw;
-    min-width: 70px;
-    height: 6vw;
-    min-height: 70px;
-    transform: translate(-2vw, -2vw);
-    position: absolute;
-    z-index: -1;
-    box-shadow: inset 0 10px 10px rgba(77, 88, 133, 1);
-  }
 }
 
 /*------------------Code 07/2 ---------------------------------*/
-.result {
-  overflow: hidden
-}
+.result {overflow: hidden}
 
 .result:hover {
   background-color: antiquewhite;
