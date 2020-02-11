@@ -121,7 +121,7 @@ var sketchSlider2b = function(s) {
 };
 
 function setup() {
-
+  noCanvas();
   //define the P1 style for a new knob slider from knob.js
   Ui.P1 = function() {};
   Ui.P1.prototype = Object.create(Ui.prototype);

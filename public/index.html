@@ -23,7 +23,22 @@
 
   <div id="pageIntro" class="">
 
-    <h1 class="introTitle">VIBETUNER</h1>
+    <div>
+          <!-- animated logo-->
+          <div class="boxContainer" id="soundwave">
+            <div class="box box0"></div>
+            <div class="box box1"></div>
+            <div class="box box2"></div>
+            <div class="box box3"></div>
+            <div class="box box4"></div>
+            <div class="box box5"></div>
+            <div class="box box6"></div>
+          </div>
+          <div class="introTitle">VIBETUNER</div>
+        </div>
+
+
+
      <h1 id="tapToGo" class="hidden">tap to go on</h1>
     <div id="buttonsIntroCont"class="hidden" >
 
@@ -34,6 +49,7 @@
       </div>
     </div>
     <div id="tapPageIntro" class="hidden" onclick="changePage('Intro','1')"> </div>
+    <div style="height: 600px; width:100%;"> </div>
   </div>
 
   <div id="pageAbout" class="hidden">
@@ -107,6 +123,7 @@
       <button id="send" class="buttonPage1" onclick="changePage('1','2a')">SEND</button>
       <button id="receive" class="buttonPage1" onclick="changePage('1','2b'); retrieveSongs()">RECEIVE</button>
     </div>
+
   </div>
 
 
