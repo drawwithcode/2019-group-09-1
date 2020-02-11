@@ -3,7 +3,7 @@ var searchResults; //stores search results
 var database;
 var songINFO;
 var lastKey = []; //array used to store the number of songs inside a moodCategory
-var moodCategory = 4; //mood category chosen by user. Its initial value is 4 by default
+var moodCategory = 0; //mood category chosen by user. Its initial value is 0 by default
 var foundSongs = [];
 var canvas2bSlider;
 var scaleArray = [];
@@ -341,6 +341,8 @@ function errKey(err) {
 
 
 function retrieveSongs() {
+
+  console.log('retrieveSong');
   var ref = database.ref();
   ref.on('value', gotData, errData);
 }
@@ -348,10 +350,11 @@ function retrieveSongs() {
 //function that retrieves 15 random songs (three for each mood) and associates to every song a random value
 //that will be used for displaying.
 function gotData(data) {
+    console.log('retrieveSong gotData');
   for (var i = 0; i < 5; i++) {
     var tempArray = [];
     lastKey[i] = Object.keys(data.val()[i]).length;
-
+    console.log('retrieveSong gotData for1');
     for (var j = 0; j < 3; j++) {
       var randID = Math.floor(random(lastKey[i]));
       var resultURI = data.val()[i][randID][0];
@@ -359,6 +362,7 @@ function gotData(data) {
       var tempArray2 = [];
       tempArray2.push(resultURI, randomFreq);
       tempArray.push(tempArray2);
+      console.log('retrieveSong gotData for2');
     }
     foundSongs.push(tempArray);
   }
@@ -382,6 +386,7 @@ function setMoodB(mood) {
 //receive Song
 function receiveSong() {
   if (isButtonChooseSongAbled == 1) {
+    stopStatic();
     changePage('2b', '3b');
     document.getElementById("spotifyPreviewB").src = 'https://open.spotify.com/embed?uri=' + choosenSongUri;
   }
