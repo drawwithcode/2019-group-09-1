@@ -53,10 +53,10 @@ var sketchSlider2b = function(s) {
     //create selector display with the five radio bars
     for (var i = 0; i < 5; i++) {
       if (moodCategory == i) {
-        s.image(scaleArray[i + 5], s.width / 2, s.height / 16 * (2 + (i * 3)), s.width, s.width / 17.5);
+        s.image(scaleArray[i + 5], s.width / 2, s.height / 16 * (2 + (i * 3))+s.height/32, s.width, s.width / 17.5);
 
       } else {
-        s.image(scaleArray[i], s.width / 2, s.height / 16 * (2 + (i * 3)), s.width, s.width / 17.5);
+        s.image(scaleArray[i], s.width / 2, s.height / 16 * (2 + (i * 3))+s.height/32, s.width, s.width / 17.5);
 
       }
 
@@ -73,8 +73,8 @@ var sketchSlider2b = function(s) {
             var unMappedCasualx = foundSongs[i][j][1];
             //take casualx and convert it to be placed on the bar
             var casualX = s.map(unMappedCasualx, 0, 100, 10, s.width - 10);
-            var transp = 255 - Math.abs(casualX - cursorX);
-            s.fill(0, 255, 0, transp);
+            var transp = 255 - 2*Math.abs(casualX - cursorX);
+            s.fill(201, 209, 234, transp);
 
             //when the slider is on an ellipse song (song is selected)
             if (casualX - 10 < cursorX && cursorX < casualX + 10) {
@@ -86,6 +86,7 @@ var sketchSlider2b = function(s) {
 
             //drawing the ellipses representing the songs
             s.noStroke();
+
             s.ellipse(casualX, s.height / 16 * (2 + (i * 3)), s.height / 20);
           }
         }
@@ -96,12 +97,14 @@ var sketchSlider2b = function(s) {
     }
     //setting the vertical positions hard stop of the selector
     var hardStop = s.height / 16 * (2 + (moodCategory * 3));
+
+    s.rectMode(CENTER);
+    s.noStroke();
+    s.fill(201, 209, 234, 30);
+    s.rect(cursorX, s.height/2, s.width/12, s.height)
+    //vertical line
     s.strokeWeight(2);
     s.stroke("#ff8871");
-    //horizontal line
-
-    s.strokeWeight(4);
-    //vertical line
     s.line(cursorX, 0, cursorX, s.height);
     //circle
     s.noFill();
