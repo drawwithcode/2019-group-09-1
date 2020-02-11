@@ -124,7 +124,7 @@
     <h1 class="introTitle">VIBETUNER</h1>
     <div id="buttons1Cont">
       <button id="send" class="buttonPage1" onclick="changePage('1','2a')">SEND</button>
-      <button id="receive" class="buttonPage1" onclick="changePage('1','2b'); retrieveSongs()">RECEIVE</button>
+      <button id="receive" class="buttonPage1" onclick="changePage('1','2b'); retrieveSongs(); playStatic()">RECEIVE</button>
     </div>
 
   </div>
@@ -235,7 +235,7 @@
       <div id="sliderButton2b">
         <!--input range slider from knob.js library-->
         <input id='test' class="preset1" type="range" min="0" max="360" data-width="200" data-height="200" data-angleOffset="180" data-angleRange="360" step="3">
-        <button id="receiveSong" onclick="receiveSong()">TUNE IN</button>
+        <button id="receiveSong" onclick="receiveSong(); stopStatic()">TUNE IN</button>
       </div>
     </div>
   </div>
@@ -256,7 +256,7 @@
 
 </body>
 <script src="addons/p5.min.js"></script>
-
+<script src="addons/p5.sound.min.js"></script>
 <script src="sketch.js"></script>
 
 </html>

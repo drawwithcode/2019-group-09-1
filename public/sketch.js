@@ -16,6 +16,11 @@ var isButtonChooseSongAbled;
 var choosenSongUri;
 var transmissionDegrees;
 
+//sounds
+var clack;
+var static;
+var staticProx;
+
 function preload() {
   for (i = 0; i < 10; i++) {
     if (i < 5) {
@@ -26,6 +31,10 @@ function preload() {
       scaleArray.push(scale);
     }
   }
+  clack = loadSound("assets/sounds/clack.wav");
+  static = loadSound("assets/sounds/static.mp3");
+  staticProx = loadSound("assets/sounds/staticProx.mp3");
+
 }
 
 var sketchSlider2b = function(s) {
@@ -308,6 +317,7 @@ function setMoodA(mood) {
   cleanButtons(0);
   document.getElementsByClassName("moodButton")[mood].classList.add("buttonDown");
   document.getElementById('sendSong').disabled = false;
+  clack.play();
 }
 
 //function to send the selected song ID to the database
@@ -366,6 +376,7 @@ function setMoodB(mood) {
   cleanButtons(5);
   document.getElementsByClassName("moodButton")[mood].classList.add("buttonDown");
   document.getElementById('receiveSong').disabled = false;
+  clack.play();
 }
 
 //receive Song
@@ -457,6 +468,15 @@ function writeDictionary(i) {
   }
 }
 
+//play static radio tuning
+function playStatic() {
+  static.loop();
+}
+
+//stop static radio tuning when the page is changed
+function stopStatic() {
+  static.stop();
+}
 
 
 var p5Slider2b = new p5(sketchSlider2b);
