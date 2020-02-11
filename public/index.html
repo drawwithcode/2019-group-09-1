@@ -157,7 +157,7 @@
 *************************** SECTION B *********************************************************************************************************
 ************************************************************************************************************************************************ -->
 
-  <div id="page2b" class="">
+  <div id="page2b" class="hidden">
     <div id="page2bCont">
 
       <div id="sketch2bSlider">
@@ -191,21 +191,22 @@
   </div>
 
 
-  <div id="page3b" class="hidden">
-    <div class="popUp1">
-      <input type="button" class="goBack" value="&times;">
+  <div id="page3b" class="">
+    <div class="popUp1" id="page3bPopup">
+
+      <input type="button" class="goBack" value="&times;" onclick="changePage('3b','1');cleanButtons(5);cleanSRC('spotifyPreviewB')" >
       <div id="page3b_title" class="title1">SOMEONE SUGGESTED THIS SONG:</div>
+
 
         <iframe id="spotifyPreviewB" class="spotifyPreview1" src="https://open.spotify.com/embed?uri=spotify:track:50rO1T1hHJD70uRjX1uthz" width="250" height="800" frameborder="0" allowtransparency="true"></iframe>
 
-
-      <button id="fromPage3bToPage1" onclick="changePage('3b','1');cleanButtons(5);cleanSRC('spotifyPreviewB')">No, go back</button>
     </div>
   </div>
 
 
 </body>
 <script src="addons/p5.min.js"></script>
+
 <script src="sketch.js"></script>
 
 </html>
