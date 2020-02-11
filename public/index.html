@@ -114,12 +114,12 @@
   </div>
 
   <!--Pagina di conferma per inserire la canzone -->
-  <div id="page3a" class="">
-    <div id="page3aPopup">
-      <input type="button" id="goBackTo2a" value="&times;" onclick="changePage('3a','2a');cleanSRC('spotifyPreviewA');cleanPage2a();cleanButtons(0)">
+  <div id="page3a" class="hidden">
+    <div id="page3aPopup" class="popUp1">
+      <input type="button" class="goBack" value="&times;" onclick="changePage('3a','2a');cleanSRC('spotifyPreviewA');cleanPage2a();cleanButtons(0)">
       <div id="page3a_title">WOULD YOU LIKE TO SUGGEST THIS SONG?</div>
 
-      <iframe id="spotifyPreviewA" src="https://open.spotify.com/embed?uri=spotify:track:50rO1T1hHJD70uRjX1uthz" width="250" height="330" frameborder="0" allowtransparency="true"></iframe>
+      <iframe id="spotifyPreviewA" class="spotifyPreview1" src="https://open.spotify.com/embed?uri=spotify:track:50rO1T1hHJD70uRjX1uthz" width="250" height="800" frameborder="0" allowtransparency="true"></iframe>
 
       <div id="page3a_subtitle">CHOOSE A MOOD FOR THIS SONG</div>
 
@@ -140,14 +140,16 @@
           <div class="moodButtonsLabels">RELAXED</div>
         </div>
       </div>
-      <button disabled id="sendSong" class="inactive" onclick="sendSong();changePage('3a','4a');cleanSRC('spotifyPreviewA');cleanPage2a()">SEND</button>
+      <button disabled id="sendSong" class="inactive buttonStyle1" onclick="sendSong();changePage('3a','4a');cleanSRC('spotifyPreviewA');cleanPage2a()">SEND</button>
 
     </div>
   </div>
 
   <div id="page4a" class="hidden">
-    <div>Song transmitted successfully</div>
-    <button onclick="changePage('4a','1')">Go back to homepage</button>
+    <div class="popUp1" id="popUpPage4a">
+      <div class="title1" id="titlePage4a">SONG TRANSMITTED SUCCESFULLY</div>
+      <button onclick="changePage('4a','1')" class="buttonStyle1 ">GO BACK</button>
+    </div>
   </div>
 
   <!--********************************************************************************************************************************************
@@ -155,37 +157,50 @@
 *************************** SECTION B *********************************************************************************************************
 ************************************************************************************************************************************************ -->
 
-  <div id="page2b" class="hidden">
-    page2b
-    <div id="sketch2bSlider">
-    </div>
+  <div id="page2b" class="">
+    <div id="page2bCont">
 
-    Cerca una canzone
-    <div id="containerButtonsB">
-      <button class="moodButton" onclick="setMoodB(5)">HAPPY</button>
-      <button class="moodButton" onclick="setMoodB(6)">SAD</button>
-      <button class="moodButton" onclick="setMoodB(7)">RELAXED</button>
-      <button class="moodButton" onclick="setMoodB(8)">INSPIRED</button>
-      <button class="moodButton" onclick="setMoodB(9)">ANGRY</button>
-    </div>
+      <div id="sketch2bSlider">
+      </div>
 
-    <div>
-      <!--input range slider from knob.js library-->
-      <input id='test' class="preset1" type="range" min="0" max="360" data-width="100" data-height="100" data-angleOffset="180" data-angleRange="360" step="3">
-    </div>
 
-    <button id="receiveSong" onclick="receiveSong()">Choose this song</button>
+      <div id="moodButtonsContB">
+        <div class="moodButtonsContB2"><button class="moodButton" onclick="setMoodB(5)"></button>
+          <div class="moodButtonsLabels">ROMANTIC</div>
+        </div>
+        <div class="moodButtonsContB2"><button class="moodButton" onclick="setMoodB(6)"></button>
+          <div class="moodButtonsLabels">INTENSE</div>
+        </div>
+        <div class="moodButtonsContB2"><button class="moodButton" onclick="setMoodB(7)"></button>
+          <div class="moodButtonsLabels">CHEERFUL</div>
+        </div>
+        <div class="moodButtonsContB2"><button class="moodButton" onclick="setMoodB(8)"></button>
+          <div class="moodButtonsLabels">NOSTALGIC</div>
+        </div>
+        <div class="moodButtonsContB2"><button class="moodButton" onclick="setMoodB(9)"></button>
+          <div class="moodButtonsLabels">RELAXED</div>
+        </div>
+      </div>
+
+      <div id="sliderButton2b">
+        <!--input range slider from knob.js library-->
+        <input id='test' class="preset1" type="range" min="0" max="360" data-width="200" data-height="200" data-angleOffset="180" data-angleRange="360" step="3">
+        <button id="receiveSong" onclick="receiveSong()">Choose this song</button>
+      </div>
+    </div>
   </div>
 
+
   <div id="page3b" class="hidden">
-    <div id="page3a_title">Someone suggested this song:</div>
+    <div class="popUp1">
+      <input type="button" class="goBack" value="&times;">
+      <div id="page3b_title" class="title1">SOMEONE SUGGESTED THIS SONG:</div>
 
-    <!--DIV contenente le info della canzone-->
-    <div id="page3b_card">
-      <iframe id="spotifyPreviewB" src="" width="250" height="330" frameborder="0" allowtransparency="true"></iframe>
+        <iframe id="spotifyPreviewB" class="spotifyPreview1" src="https://open.spotify.com/embed?uri=spotify:track:50rO1T1hHJD70uRjX1uthz" width="250" height="800" frameborder="0" allowtransparency="true"></iframe>
+
+
+      <button id="fromPage3bToPage1" onclick="changePage('3b','1');cleanButtons(5);cleanSRC('spotifyPreviewB')">No, go back</button>
     </div>
-
-    <button id="fromPage3bToPage1" onclick="changePage('3b','1');cleanButtons(5);cleanSRC('spotifyPreviewB')">No, go back</button>
   </div>
 
 

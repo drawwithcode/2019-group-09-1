@@ -6,7 +6,7 @@ var lastKey = []; //array used to store the number of songs inside a moodCategor
 var moodCategory = 4; //mood category chosen by user. Its initial value is 4 by default
 var foundSongs = [];
 var canvas2bSlider;
-var bar;
+var scaleArray=[];
 var dial; //knob to move the tuner
 var statsArray = [];
 var dictionary = [];
@@ -17,7 +17,15 @@ var choosenSongUri;
 var transmissionDegrees;
 
 function preload() {
-  bar = loadImage('assets/images/bar.png');
+  for (i=0; i<10; i++) {
+    if(i<5) {
+  var scale = loadImage("assets/images/scale"+i+".png");
+  scaleArray.push(scale);}
+   else{
+     var scale= loadImage("assets/images/scaleActive"+(i-5)+".png");
+     scaleArray.push(scale);
+  }
+}
 }
 
 var sketchSlider2b = function(s) {
@@ -27,9 +35,11 @@ var sketchSlider2b = function(s) {
     canvas2bSlider.parent('sketch2bSlider');
   };
 
+
+
   s.draw = function() {
     s.imageMode(CENTER);
-    s.background("red");
+    s.background('#2c3764');
 
     //reset the selectorStatus, 0 = no song selected
     var selectorStatus = 0;
@@ -38,9 +48,18 @@ var sketchSlider2b = function(s) {
 
     //create selector display with the five radio bars
     for (var i = 0; i < 5; i++) {
+      if (moodCategory == i) {
+        s.image(scaleArray[i+5], s.width / 2, s.height / 16 * (2 + (i * 3)), s.width, s.width/17.5 );
+
+      } else {
+        s.image(scaleArray[i], s.width / 2, s.height / 16 * (2 + (i * 3)), s.width, s.width/17.5);
+
+      }
 
       //if we are in the selected mood
       if (moodCategory == i) {
+        //drawing the five radio bar
+
         //for cycle to go trough the three songs of the selected mood
         for (j = 0; j < 3; j++) {
 
@@ -69,20 +88,19 @@ var sketchSlider2b = function(s) {
 
       }
 
-      //drawing the five radio bar
-      s.image(bar, s.width / 2, s.height / 16 * (2 + (i * 3)), s.width, s.height / 8);
+
     }
     //setting the vertical positions hard stop of the selector
     var hardStop = s.height / 16 * (2 + (moodCategory * 3));
     s.strokeWeight(2);
-    s.stroke(255, 204, 0);
+    s.stroke("#ff8871");
     //horizontal line
-    s.line(0, hardStop, s.width, hardStop);
+
+    s.strokeWeight(4);
     //vertical line
     s.line(cursorX, 0, cursorX, s.height);
     //circle
     s.noFill();
-    s.ellipse(cursorX, hardStop, s.height / 12);
 
     //transmitt the result of the draw cycle to the global var isButtonChooseSongAbled
     //and able or disable the button
@@ -244,7 +262,7 @@ async function search() {
       document.getElementById('searchResults' + i).innerHTML = searchResults.results[i].song + ' by ' + searchResults.results[i].artist;
     }
 
-    if(Object.keys(searchResults.results).length == 0){
+    if (Object.keys(searchResults.results).length == 0) {
       document.getElementById("resultsContainer").classList.add('hidden');
     }
   }
@@ -320,7 +338,7 @@ function gotData(data) {
     for (var j = 0; j < 3; j++) {
       var randID = Math.floor(random(lastKey[i]));
       var resultURI = data.val()[i][randID][0];
-      var randomFreq = Math.floor(random(10))*10;
+      var randomFreq = Math.floor(random(10)) * 10;
       var tempArray2 = [];
       tempArray2.push(resultURI, randomFreq);
       tempArray.push(tempArray2);
@@ -409,7 +427,7 @@ function writeDictionary(i) {
         for (var n = 0; n < dictionary.length; n++) {
           if (data.val()[i][j][1] == dictionary[n][0]) {
             dictionary[n][1] += 1;
-            if(dictionary[n][1] > favouriteSong[1]){
+            if (dictionary[n][1] > favouriteSong[1]) {
               favouriteSong = dictionary[n];
               console.log(favouriteSong);
             }
