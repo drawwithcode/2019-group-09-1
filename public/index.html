@@ -24,23 +24,23 @@
   <div id="pageIntro" class="">
 
     <div>
-          <!-- animated logo-->
-          <div class="boxContainer" id="soundwave">
-            <div class="box box0"></div>
-            <div class="box box1"></div>
-            <div class="box box2"></div>
-            <div class="box box3"></div>
-            <div class="box box4"></div>
-            <div class="box box5"></div>
-            <div class="box box6"></div>
-          </div>
-          <div class="introTitle">VIBETUNER</div>
-        </div>
+      <!-- animated logo-->
+      <div class="boxContainer" id="soundwave">
+        <div class="box box0"></div>
+        <div class="box box1"></div>
+        <div class="box box2"></div>
+        <div class="box box3"></div>
+        <div class="box box4"></div>
+        <div class="box box5"></div>
+        <div class="box box6"></div>
+      </div>
+      <div class="introTitle">VIBETUNER</div>
+    </div>
 
 
 
-     <h1 id="tapToGo" class="hidden">tap to go on</h1>
-    <div id="buttonsIntroCont"class="hidden" >
+    <h1 id="tapToGo" class="hidden">tap to go on</h1>
+    <div id="buttonsIntroCont" class="hidden">
 
       <button id="start" class="buttonIntro" onclick="changePage('Intro','1')" style="height: 10vh">START</button>
       <div id="buttonsIntroCont2">
@@ -58,9 +58,12 @@
   </div>
 
   <div id="pageStats" class="hidden">
+
     <div id="pageStatsCont">
 
-      <div style="align-items: center; color: #ff8871; font-size: calc(20px + 2vw); font-family: 'Bazar'; margin: 5vh 0 4vh 0;">STATISTICS</div>
+        <input type="button" class="goBack" id="goBackFromStats" value="&times;" onclick="changePage('Stats','Intro'); cleanPageStats();">
+        <div style="align-items: center; color: #ff8871; font-size: calc(20px + 2vw); font-family: 'Bazar'; margin: 5vh 0 4vh 0;">STATISTICS</div>
+
 
       <div class="statistics">
 
@@ -110,7 +113,7 @@
       </div>
 
       <div>
-        <button id="goBackFromStats" onclick="changePage('Stats','Intro');cleanPageStats();">GO BACK</button>
+
       </div>
     </div>
   </div>
@@ -141,14 +144,14 @@
     <div style="display: flex ; flex-direction:column">
 
       <div id="searchBarHomeButton">
-        <input type="button" value="&#8962;"id="buttonHomePage2a" onclick="changePage('2a','1');cleanPage2a();"></button>
+        <input type="button" value="&#8962;" id="buttonHomePage2a" onclick="changePage('2a','Intro');cleanPage2a();"></button>
         <input type="text" id="searchbar" onkeyup="search()" placeholder="Search a song...">
       </div>
 
       <div id="resultsContainerParent">
         <div id="placeholder2a" style=" visibility: hidden;"></div>
 
-        <div id="resultsContainer" class="hidden">
+        <div id="resultsContainer" class="hidden" style="overflow:hidden">
           <div id="searchResults0" class="result" onclick="selectedResult(0)"></div>
           <div id="searchResults1" class="result" onclick="selectedResult(1)"></div>
           <div id="searchResults2" class="result" onclick="selectedResult(2)"></div>
@@ -241,11 +244,11 @@
   <div id="page3b" class="hidden">
     <div class="popUp1" id="page3bPopup">
 
-      <input type="button" class="goBack" value="&times;" onclick="changePage('3b','1');cleanButtons(5);cleanSRC('spotifyPreviewB')" >
+      <input type="button" class="goBack" value="&times;" onclick="changePage('3b','Intro');cleanButtons(5);cleanSRC('spotifyPreviewB')">
       <div id="page3b_title" class="title1">SOMEONE SUGGESTED THIS SONG:</div>
 
 
-        <iframe id="spotifyPreviewB" class="spotifyPreview1" src="" width="250" height="800" frameborder="0" allowtransparency="true"></iframe>
+      <iframe id="spotifyPreviewB" class="spotifyPreview1" src="" width="250" height="800" frameborder="0" allowtransparency="true"></iframe>
 
     </div>
   </div>
