@@ -10,7 +10,7 @@
 7. [Credits](#Credits)
 
 ## Team
-*VIBE.TUNER* was developed by:
+VIBE.TUNER was developed by:
 + [Carlotta Bacchini](https://github.com/carlottabacchini)
 + [Stefano Ferrari](https://github.com/Stefano-Ferrari)
 + [Alessandro Pennacchioni](https://github.com/pennacch)
@@ -22,7 +22,7 @@ Politecnico di Milano - Scuola del Design <br>
 Faculty: Michele Mauri, Andrea Benedetti
 
 ## Project Idea
-*VIBE.TUNER* is a web app developed to connect different users around the world through music and feelings. This app has two main features. On one side the user can advise a song which is associated with a mood chosen by the user himself. Once sent, the song is ready to be recommended to another user with the same mood. <br>
+VIBE.TUNER is a web app developed to connect different users around the world through music and feelings. This app has two main features. On one side the user can advise a song which is associated with a mood chosen by the user himself. Once sent, the song is ready to be recommended to another user with the same mood. <br>
 The experience is made more interesting by a visual interface inspired by old radio. The user will interact with knobs and buttons to search on a frequency scale a song he wants to receive as advice.
 
 ## Design challenges
@@ -113,7 +113,9 @@ The code below regolates the functioning of the song selector in the discovery s
 
     '''
 
-    ![VIBETUNER](public/assets/readme/Screen1.jpg)
+    ![Screen1](public/assets/readme/Screen1.jpg)
+    ![Screen2](public/assets/readme/Screen2.jpg)
+    ![Screen3](public/assets/readme/Screen3.jpg)
 
 ## Code challenges
 In order to achieve our goal, it was necessary that the user could search the song he wanted to share inside an already filled out list. The most convenient solution that we came up with was to use an API developed by a musical streaming provider. We decided to use Spotify Web Api because of its popularity and thoroughness of songs and available endpoint. <br>
@@ -126,7 +128,7 @@ During the developing phase of the project we used node.js to test the client-se
 Our main inspirations come from the analogue world, that our generation has never fully experienced. We thought about the period of free radios in Italy, when everyone could broadcast his own transmission. Talking of the radio world, it was immediate to think of one of the most famous design of a radio: the Braun T1000, designed by Dieter Rams in 1963.
 
 ## Credits
-*VIBE.TUNER* was designed with the following third party libraries and tools:
+VIBE.TUNER was designed with the following third party libraries and tools:
 + [p5.js](https://p5js.org/)
 + [node.js and node modules](https://nodejs.org/it/)
 + [socket.IO](https://socket.io/)

@@ -42,30 +42,32 @@
     <h1 id="tapToGo" class="hidden">tap to go on</h1>
     <div id="buttonsIntroCont" class="hidden">
 
-      <button id="start" class="buttonIntro" onclick="changePage('Intro','1')" style="height: 10vh">START</button>
+      <button id="start" class="buttonIntro" onclick="changePage('Intro','1')" style="height: 10vh"><span>START</span></button>
       <div id="buttonsIntroCont2">
-        <button id="about" class="buttonIntro" style="margin-right: 2vh" onclick="changePage('Intro','About')">ABOUT</button>
-        <button id="info" class="buttonIntro" style="margin-left: 2vh" onclick="changePage('Intro','Stats')">INFO</button>
+        <button id="about" class="buttonIntro" style="margin-right: 2vh" onclick="changePage('Intro','About')"><span>ABOUT</span></button>
+        <button id="info" class="buttonIntro" style="margin-left: 2vh" onclick="changePage('Intro','Stats'); loadStats(); readDictionary();"><span>INFO</span></button>
       </div>
     </div>
     <div id="tapPageIntro" class="hidden" onclick="changePage('Intro','1')"> </div>
     <div style="height: 600px; width:100%;"> </div>
   </div>
+
   <div id="pageAbout" class="hidden">
-    <div id="wrapAbout">
-    <div id="aboutTitle">
-      ABOUT THE PROJECT
+      <div id="wrapAbout">
+      <div id="aboutTitle">
+        ABOUT THE PROJECT
+      </div>
+      <div id="aboutText">
+      VIBE.TUNER is a web app developed to connect different users around the world through music and feelings.
+       This app has two main features. On one side the user can advise a song which is associated with a mood chosen by the user himself.
+       Once sent, the song is ready to be recommended to another user with the same mood.
+     </div>
+     <div id="btnContainerIntro">
+      <button id="pageAboutBtn"  class="buttonStyle1" style="width:15vw;" onclick="changePage('About','Intro')">GO BACK</button>
+
     </div>
-    <div id="aboutText">
-    VIBE.TUNER is a web app developed to connect different users around the world through music and feelings.
-     This app has two main features. On one side the user can advise a song which is associated with a mood chosen by the user himself.
-     Once sent, the song is ready to be recommended to another user with the same mood.
-   </div>
-   <div id="btnContainerIntro">
-    <button id="pageAboutBtn" onclick="changePage('About','Intro')"> </button>
   </div>
-</div>
-  </div>
+    </div>
 
   <div id="pageStats" class="hidden">
 
@@ -79,7 +81,7 @@
 
         <div class="counterCategoryParent">
           <div id="counterMood0" class="counterCategory">
-            0
+
           </div>
           <div>ROMANTIC</div>
         </div>
@@ -114,12 +116,10 @@
 
       </div>
 
-      <div style="margin-bottom:4vh; align-items: center; color: #ff8871; font-size: calc(10px + 1.5vw); font-family: 'Bazar';">- TOP 3 MOST SHARED SONGS -</div>
+      <div style="margin-bottom:4vh; align-items: center; color: #ff8871; font-size: calc(10px + 1.5vw); font-family: 'Bazar';">- MOST SHARED SONG -</div>
 
       <div>
-        <iframe id="favouriteSong1" class="favSong" src="https://open.spotify.com/embed?uri=spotify:track:50rO1T1hHJD70uRjX1uthz" width="250" height="250" frameborder="0" allowtransparency="true"></iframe>
-        <iframe id="favouriteSong2" class="favSong" src="https://open.spotify.com/embed?uri=spotify:track:50rO1T1hHJD70uRjX1uthz" width="250" height="250" frameborder="0" allowtransparency="true"></iframe>
-        <iframe id="favouriteSong3" class="favSong" src="https://open.spotify.com/embed?uri=spotify:track:50rO1T1hHJD70uRjX1uthz" width="250" height="250" frameborder="0" allowtransparency="true"></iframe>
+        <iframe id="favouriteSong" class="favSong" src="" width="250" height="250" frameborder="0" allowtransparency="true"></iframe>
       </div>
 
       <div>
@@ -225,7 +225,7 @@
 
 
       <div id="moodButtonsContB">
-        <div class="moodButtonsContB2"><button class="moodButton" onclick="setMoodB(5)"></button>
+        <div class="moodButtonsContB2"><button class="moodButton buttonDown" onclick="setMoodB(5)"></button>
           <div class="moodButtonsLabels">ROMANTIC</div>
         </div>
         <div class="moodButtonsContB2"><button class="moodButton" onclick="setMoodB(6)"></button>
@@ -245,7 +245,7 @@
       <div id="sliderButton2b">
         <!--input range slider from knob.js library-->
         <input id='test' class="preset1" type="range" min="0" max="360" data-width="200" data-height="200" data-angleOffset="180" data-angleRange="360" step="3">
-        <button id="receiveSong" onclick="receiveSong(); stopStatic()">TUNE IN</button>
+        <button id="receiveSong" onclick="receiveSong();">TUNE IN</button>
       </div>
     </div>
   </div>
@@ -254,7 +254,7 @@
   <div id="page3b" class="hidden">
     <div class="popUp1" id="page3bPopup">
 
-      <input type="button" class="goBack" value="&times;" onclick="changePage('3b','Intro');cleanButtons(5);cleanSRC('spotifyPreviewB')">
+      <input type="button" class="goBack" value="&times;" onclick="changePage('3b','Intro');cleanSRC('spotifyPreviewB')">
       <div id="page3b_title" class="title1">SOMEONE SUGGESTED THIS SONG:</div>
 
 

@@ -442,7 +442,7 @@ function writeDictionary(i) {
       // var tot = dictionary.length;
       if (dictionary.length == 0) {
         //se il dizionario è vuoto
-        var tempArray3 = [data.val()[i][j][1], 1];
+        var tempArray3 = [data.val()[i][j][0], 1];
         dictionary.push(tempArray3);
         favouriteSong = tempArray3;
       } else {
@@ -457,7 +457,7 @@ function writeDictionary(i) {
             break;
           } else {
             if (n == dictionary.length - 1) {
-              var tempArray3 = [data.val()[i][j][1], 1];
+              var tempArray3 = [data.val()[i][j][0], 1];
               dictionary.push(tempArray3);
               break;
             }
@@ -466,6 +466,7 @@ function writeDictionary(i) {
       }
     }
     console.log(dictionary);
+    document.getElementById('favouriteSong').src= 'https://open.spotify.com/embed?uri=' + favouriteSong[0];
   }
 
   function errDictionary() {
